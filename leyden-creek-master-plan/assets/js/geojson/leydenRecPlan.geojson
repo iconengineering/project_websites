@@ -1,0 +1,170 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "W 72nd Avenue",
+        "reach": 1,
+        "description": "<b>Proposed Improvement:</b> 70 ft Bridge<br><b>Proposed Improvement:</b> 11'x6' RCBC Diversion"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.13195037841797,
+          39.82706103187656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Future Ward Road Crossing",
+        "reach": 2,
+        "description": "<b>Proposed Improvement:</b> 100 yr: (6) 10'x6'"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.13813018798828,
+          39.83266369294837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "W 75th Place",
+        "reach": 2,
+        "description": "<b>Proposed Improvement:</b> 10 yr: (2)8'x4' RCBC<br><b>Proposed Improvement:</b> Channel Grading"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.14115571975708,
+          39.833388709811516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Alkire Street",
+        "reach": 2,
+        "description": "<b>Proposed Improvement:</b> 100 yr: (2) 12'x5' RCBC<br><b>Proposed Improvement:</b> Reconstruct Existing Pond Features<br><b>Proposed Improvement:</b> Channel Grading"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.14746427536011,
+          39.836585283815474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Croke Canal",
+        "reach": 3,
+        "description": "<b>Proposed Improvement:</b> 100 yr: (3) 10'x3' RCBC<br><b>Proposed Improvement:</b> Channel Grading"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.16460359096527,
+          39.838937307047324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Indiana Street",
+        "reach": 3,
+        "description": "<b>Proposed Improvement:</b> 100 yr: 10'x6' RCBC<br><b>Proposed Improvement:</b> Channel Grading"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.16523122787476,
+          39.83925447389389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Quaker Street",
+        "reach": 4,
+        "description": "<b>Proposed Improvement:</b> 100 yr: (5) 10'x8' RCBC<br><b>Proposed Improvement:</b> Channel Grading"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.18404960632324,
+          39.84426304441077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Pattridge Open Space",
+        "reach": 4,
+        "description": "<b>Proposed Improvement:</b> Check Structures to Stablize Slope to 0.6%"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.20409107208252,
+          39.84505383793876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "W 82nd Avenue",
+        "reach": 4,
+        "description": "<b>Proposed Improvement:</b> 100 yr: (5) 10'x5' RCBC<br><b>Proposed Improvement:</b> Channel Grading"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.21902561187744,
+          39.846305909064114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Blue Mountain Road",
+        "reach": 4,
+        "description": "<b>Proposed Improvement:</b> 100 yr: (2) 8'x6' RCBC<br><b>Proposed Improvement:</b> Double Stacked 36 in Grouted Boulders<br><b>Proposed Improvement:</b> Reconstruct and Elevate Blue Mountain Rd."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.27290582656859,
+          39.87496550191461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Woodland Valley Filing No. 7",
+        "reach": 1,
+        "description": "<b>Proposed Improvement:</b> Channel Grading"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.13340950012207,
+          39.82870892080139
+        ]
+      }
+    }
+  ]
+}

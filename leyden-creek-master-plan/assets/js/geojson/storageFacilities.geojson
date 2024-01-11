@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "Id": 0, "Name": "Lamplighter_Park", "Elev": 0.000000, "Centroid": null, "LabelName": "Lamplighter Park" }, "geometry": { "type": "Point", "coordinates": [ -105.12702998434635, 39.831915120396594 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Name": "Leyden_Lake", "Elev": 0.000000, "Centroid": null, "LabelName": "Leyden Lake" }, "geometry": { "type": "Point", "coordinates": [ -105.16908406557951, 39.840750249638255 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Name": "RalstonValleyHS", "Elev": 0.000000, "Centroid": null, "LabelName": "Ralston Valley High School" }, "geometry": { "type": "Point", "coordinates": [ -105.15380779546378, 39.842022453706853 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Name": null, "Elev": 0.000000, "Centroid": null, "LabelName": "Leyden Ranch West" }, "geometry": { "type": "Point", "coordinates": [ -105.17485347051957, 39.847581864060153 ] } }
+]
+}

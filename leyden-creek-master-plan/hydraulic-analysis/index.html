@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.22.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.22.0/mapbox-gl.css" rel="stylesheet">
+    
+      
+        <title>Hydraulic Analysis - Leyden Creek Master Plan</title>
+      
+      
+      
+        <link rel="canonical" href="http://iconengineering.github.io/leyden-creek-master-plan/hydraulic-analysis/">
+      
+      
+        <meta name="author" content="ICON Engineering">
+      
+    
+    <meta property="og:url" content="http://iconengineering.github.io/leyden-creek-master-plan/hydraulic-analysis/">
+    <meta property="og:title" content="Leyden Creek Master Plan">
+    <meta property="og:image" content="http://iconengineering.github.io/leyden-creek-master-plan/hydraulic-analysis//../assets/img/UDFCD_NEW.jpg">
+    <meta name="apple-mobile-web-app-title" content="Leyden Creek Master Plan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../assets/img/UDFCD_NEW.jpg">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../assets/fonts/icon.eot?52m981');
+      	src: url('../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../assets/stylesheets/application-c279a209f4.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/palettes-d790dcf0d5.css">
+    
+    
+      
+      
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Condensed:300,400,500,700|Ubuntu+Mono">
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Ubuntu+Mono">
+      <style>
+        h1,h2,h3,h4,h5,h6 {
+          font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+        }
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+    <script src="../assets/javascripts/modernizr-4a5cc7e01e.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-blue-grey palette-accent-amber">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+          </span>
+        
+        Leyden Creek Master Plan <span class="subtitle">Hydraulic Analysis</span>
+      </div>
+    </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/iconengineering" title="@iconengineering on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/iconengineering/leyden-creek-master-plan" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../assets/img/UDFCD_NEW.jpg">
+        </div>
+      
+      <div class="name">
+        <strong>
+          Leyden Creek Master Plan
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          iconengineering/leyden-creek-master-plan
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="../http://www.iconeng.com/wordpress/wp-content/uploads/2015/09/Leyden-Creek-Major-Drainageway-Plan-2015.pdf" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download PDF
+            </a>
+          </li>
+        </ul>
+      
+      
+      <hr>
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Table of Contents" href="..">
+      Table of Contents
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../introduction/">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Study Area Description" href="../study-area-description/">
+      Study Area Description
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Hydrologic Analysis" href="../hydrologic-analysis/">
+      Hydrologic Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="current" title="Hydraulic Analysis" href="./">
+      Hydraulic Analysis
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="4.1 Evaluation of Existing Facilities" href="#41-evaluation-of-existing-facilities">
+                4.1 Evaluation of Existing Facilities
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="4.2 Flood Hazards" href="#42-flood-hazards">
+                4.2 Flood Hazards
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="4.3 Previous Analysis" href="#43-previous-analysis">
+                4.3 Previous Analysis
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Alternative Analysis" href="../alternative-analysis/">
+      Alternative Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Recommended Plan" href="../recommended-plan/">
+      Recommended Plan
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Conceptual Design" href="../conceptual-design/">
+      Conceptual Design
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="References" href="../references/">
+      References
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix B - Hydrologic Analysis" href="../appendix-b/">
+      Appendix B - Hydrologic Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix C - Hydraulic Analysis" href="../appendix-c/">
+      Appendix C - Hydraulic Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix F - Alternatives Analysis" href="../appendix-f/">
+      Appendix F - Alternatives Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix G - Conceptual Design Information" href="../appendix-g/">
+      Appendix G - Conceptual Design Information
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix H - Master Plan Maps and Profiles" href="../appendix-h/">
+      Appendix H - Master Plan Maps and Profiles
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+            
+              
+              <li>
+                <a href="https://github.com/iconengineering" target="_blank" title="@iconengineering on GitHub">
+                  @iconengineering on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="hydraulic-analysis">Hydraulic Analysis<a class="headerlink" href="#hydraulic-analysis" title="Permanent link"></a></h1>
+<p>New flood hazard delineations were not completed with this study.
+Hydraulic analyses for Leyden Creek were assembled from past reports and
+studies, and served as the basis of evaluating proposed improvements.
+Upstream of Leyden Lake, a HEC-RAS model, developed by ICON Engineering,
+as part of Colorado Water Conversation Board’s, Clear Creek Watershed
+Risk Map Project was utilized. Downstream of Leyden Lake, hydraulic
+modeling from the 2006 Mapleleaf Subdivision Filing No. 2 LOMR
+(06-08-B422P) and the 2005 LOMR model based on the 2004 Boyle FHAD study
+were used for the hydraulic evaluations.. All modeling was performed
+using HEC-RAS version 4.1.0.</p>
+<p>The steady flow files used within these models were updated with new
+discharges developed for this study, as discussed in <a href="../hydrologic-analysis">Section 3.0
+Hydrologic Analysis</a>.</p>
+<h2 id="41-evaluation-of-existing-facilities">4.1 Evaluation of Existing Facilities<a class="headerlink" href="#41-evaluation-of-existing-facilities" title="Permanent link"></a></h2>
+<p>Existing infrastructure along Leyden Creek was evaluated to determine
+capacity with future conditions discharges.</p>
+<p>Several changes were made to the previous modeling. First, while
+repairing flood damage from the September 2013 event, the Indiana Street
+crossing was improved to triple 36” corrugated metal pipes (CMP)’s. The
+Alkire Street crossing was changed from a 36” CMP in the effective model
+to a 48” CMP based on information provided by the City of Arvada.</p>
+<p>Existing conditions floodplains can be seen in <a href="../appendix-c"><em>APPENDIX C - Hydraulic
+Analysis</em></a> as part of the Problem Area Identification Map. The HEC-RAS
+cross sections can be seen in <a href="../appendix-c"><em>APPENDIX C - Hydraulic Analysis</em></a>.</p>
+<p>An inventory of structures in the existing floodplain can be found
+below.</p>
+<h6 id="table-4-1-buildings-in-existing-100-yr-floodplain">Table 4-1 : Buildings in Existing 100-yr Floodplain<a class="headerlink" href="#table-4-1-buildings-in-existing-100-yr-floodplain" title="Permanent link"></a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Reach</th>
+<th align="left">Location</th>
+<th>Total Structures</th>
+<th>Residental</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">Woodland Valley Filing No. 3</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Woodland Valley Filing No. 7</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Downstream of West 75th Place</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Alkire Street to West 75th Place</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Upstream of Indiana Street</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">Upstream of Quaker Street</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><strong>Total</strong></td>
+<td><strong>18</strong></td>
+<td><strong>13</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Most of the roadway crossings were found to be vastly undersized to
+convey the 100-yr discharge without overtopping. In many cases, capacity
+was estimated to be less than the 2-year event. A summary of existing
+infrastructure and estimated capacity is presented below.</p>
+<h6 id="table-4-2-existing-facilities-table">Table 4-2 : Existing Facilities Table<a class="headerlink" href="#table-4-2-existing-facilities-table" title="Permanent link"></a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Location</th>
+<th>Cross Section</th>
+<th>Structure Type</th>
+<th>Estimated Structure Discharge (cfs)</th>
+<th>2014 MDP 100-yr Future Flow (cfs)</th>
+<th>Return Period</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Simms Street</td>
+<td>502.5</td>
+<td>(4) 12' x 5' RCBC</td>
+<td>&gt;2157</td>
+<td>2157</td>
+<td>&gt; 100-yr</td>
+</tr>
+<tr>
+<td align="left">W. 72nd Ave</td>
+<td>505.5</td>
+<td>Bridge</td>
+<td>590</td>
+<td>2083</td>
+<td>&lt; 10-yr</td>
+</tr>
+<tr>
+<td align="left">W. 75th Place</td>
+<td>513.5</td>
+<td>36" CMP</td>
+<td>60</td>
+<td>1416</td>
+<td>&lt; 2-yr</td>
+</tr>
+<tr>
+<td align="left">Alkire Street</td>
+<td>518.5</td>
+<td>48" CMP</td>
+<td>71</td>
+<td>1249</td>
+<td>&lt; 2-yr</td>
+</tr>
+<tr>
+<td align="left">Croke Canal</td>
+<td>527.5</td>
+<td>36" CMP</td>
+<td>59</td>
+<td>665</td>
+<td>&lt; 2-yr</td>
+</tr>
+<tr>
+<td align="left">Indiana Street</td>
+<td>529.5</td>
+<td>(3) 36" CMP</td>
+<td>180</td>
+<td>665</td>
+<td>&lt; 5-yr</td>
+</tr>
+<tr>
+<td align="left">Leyden Lake</td>
+<td>--</td>
+<td>36" CI</td>
+<td>224</td>
+<td>665</td>
+<td>&lt; 100 yr</td>
+</tr>
+<tr>
+<td align="left">Church Ditch</td>
+<td>4030</td>
+<td>84" CMP</td>
+<td>367</td>
+<td>5380</td>
+<td>&lt; 2-yr</td>
+</tr>
+<tr>
+<td align="left">Quaker Street</td>
+<td>5865</td>
+<td>66" CMP</td>
+<td>207</td>
+<td>5212</td>
+<td>&lt; 2-yr</td>
+</tr>
+<tr>
+<td align="left">W. 82nd Ave</td>
+<td>19390</td>
+<td>(2) 50" x 36" RCP</td>
+<td>142</td>
+<td>2453</td>
+<td>&lt; 5-yr</td>
+</tr>
+</tbody>
+</table>
+<h2 id="42-flood-hazards">4.2 Flood Hazards<a class="headerlink" href="#42-flood-hazards" title="Permanent link"></a></h2>
+<p>Existing flood hazards closely resemble those presented by the effective
+FEMA flood hazard information and proposed updates associated with the
+FEMA RiskMap project. A summary of these flood hazards is presented in
+the Drainage Problem Areas Figure (Figure C-1) in <a href="../appendix-c"><em>APPENDIX C -
+Hydraulic Analysis</em></a>.</p>
+<h4 id="421-flood-hazards-of-reach-1">4.2.1 Flood Hazards of Reach 1<a class="headerlink" href="#421-flood-hazards-of-reach-1" title="Permanent link"></a></h4>
+<p>Upstream of the confluence with Ralston Creek, to Simms Street, no
+buildings are located within the 100-year floodplain boundary. The four
+cell, 12 feet by 5 feet reinforced concrete box culvert (RCBC) at Simms
+Street conveys the 100-year discharges without overtopping.</p>
+<p><strong>Problem Area 1A - Woodland Valley Filing No. 3</strong><br />
+Due to the overtopping of West 72<sup>nd</sup> Avenue, the 100-year floodplain is
+widespread through the Woodland Valley Filing No. 3 subdivision.
+Although the residential homes are generally not inundated according to
+the FEMA Flood Insurance Study, split flows from West 72<sup>nd</sup> Avenue
+surround many of the buildings. The First United Church of Arvada is the
+only building inundated from this flooding. Flood problems in this area
+relate to adding capacity at West 72<sup>nd</sup> Avenue without worsening
+flooding potential within the Woodland Valley subdivision, as well as
+improving flood conditions for First United Church.</p>
+<p><strong>Problem Area 1B - West 72<sup>nd</sup> Avenue Bridge Crossing</strong><br />
+The bridge roadway crossing at West 72<sup>nd</sup> Avenue has a conveyance
+capacity less than the 10-year event. Flows in excess of the bridge
+capacity divert water east flowing across West 72<sup>nd</sup> Avenue as
+described in Problem Area 1A. The City of Arvada would like to maintain
+100-year capacity at all major crossings.</p>
+<p><strong>Problem Area 1C - Woodland Valley Filing No. 7</strong><br />
+Upstream of West 72<sup>nd</sup> Avenue, eight residential homes are impacted by
+the 100-year floodplain due to a lack of channel conveyance capacity
+downstream of Leyden Creek Park.</p>
+<h4 id="422-flood-hazards-of-reach-2">4.2.2 Flood Hazards of Reach 2<a class="headerlink" href="#422-flood-hazards-of-reach-2" title="Permanent link"></a></h4>
+<p>Within Reach 2, one residential home and two additional buildings are
+impacted by the 100-year regulatory floodplain.</p>
+<p><strong>Problem Area 2A - West 75<sup>th</sup> Place</strong><br />
+One residential home is located within the 100-year floodplain boundary
+within Reach 2. The structure is located shortly downstream of West
+75<sup>th</sup> Place. The road crossing at West 75<sup>th</sup> Place is undersized 36”
+CMP, with a conveyance capacity less than the 2-year discharge.</p>
+<p><strong>Problem Area 2B - Cameo Estates Unit No. 2</strong><br />
+Upstream of West 75<sup>th</sup> Place, Problem Area 2C and 2D lead to the Zone X
+Shaded shallow flooding seen in Cameo Estates Unit No. 2. The shallow
+flooding flows spilling over Alkire impact several residential
+buildings, although these structures are not within the regulatory
+100-year floodplain boundary. There are two structures within the
+regulatory floodplain between Alkire Street and West 75<sup>th</sup> Place.</p>
+<p><strong>Problem Area 2C - Alkire Street Culvert Crossing</strong><br />
+Alkire Street is overtopped for the 2-year and larger discharges. As
+shown by past studies, and as part of the 2013 flood, the low point in
+Alkire Street does not occur at the culvert location, but approximately
+600 feet south of the culvert. Flooding from the low point in this area
+results in widespread shallow flows across Alkire Street to the east,
+within the Cameo Estates Unit No. 2 subdivision. The City of Arvada
+wishes to manage a higher level of capacity for the crossing at this
+location to reduce flooding potential downstream.</p>
+<p><strong>Problem Area 2D - Upstream of Alkire Street</strong><br />
+Upstream of Alkire Street, Leyden Creek spills out of its right bank
+across the Youth Memorial Sports Complex entrance road diverting flows
+south spilling over Alkire Street. Any flows that are diverted as part
+of Problem Area 2D contribute to the flood hazards mentioned in Problem
+Area 2C.</p>
+<h4 id="423-flood-hazards-of-reach-3">4.2.3 Flood Hazards of Reach 3<a class="headerlink" href="#423-flood-hazards-of-reach-3" title="Permanent link"></a></h4>
+<p>Problem areas within this reach relate to the impacts of private ponds
+in the floodplain areas in addition to the buildings and residences
+located within the floodplain. A total of three structures, two
+residential homes are inundated by the 100-year floodplain within Reach
+3.</p>
+<p><strong>Problem Area 3A - Cameo Estates</strong><br />
+Although not impacted by the 100-year regulatory floodplain, many homes
+near this area were impacted by the flooding in September 2013. Flooding
+was determined to be related to diversion from Leyden Creek near ponds,
+fence lines, and other obstructions, as well as overflows from the canal
+systems located in proximity to Cameo Estates. This area was also
+determined to be subject to flooding potential for events exceeding the
+100-year event, such as the September 2013 flood.</p>
+<p><strong>Problem Area 3B - West of Cameo Estates</strong><br />
+Upstream of Cameo Estates, private ponds, fence lines, and other
+obstructions have potential to divert flows towards residential
+development, away from the natural flow paths. This was evident in
+September 2013.</p>
+<p><strong>Problem Area 3C - Croke Canal</strong><br />
+The 36” CMP crossing of Leyden Creek under the Croke Canal is undersized
+leading to flows spilling into the Croke Canal. These comingled flows
+exceed the design capacity of the canal, jeopardizing the structural
+integrity of the canal. This was experienced with the September 2013
+flooding where the canal bank eroded and eventually breached near West
+78<sup>th</sup> Place and Eldridge Street.</p>
+<p><strong>Problem Area 3D - Indiana Street</strong><br />
+Even though it was improved since the 2013 flood, the crossing at
+Indiana Street still remains undersized compared to the 100-year event.
+Upstream of Indiana Street there are two residential homes inundated by
+the 100-year floodplain.</p>
+<h4 id="424-flood-hazards-of-reach-4">4.2.4 Flood Hazards of Reach 4<a class="headerlink" href="#424-flood-hazards-of-reach-4" title="Permanent link"></a></h4>
+<p><strong>Problem Area 4A - Leyden Lake</strong><br />
+As demonstrated by the updated hydrology in this report, Leyden Lake
+overtops during the 100-year and more significant events even though the
+original design of this facility was intended to provide 100-year level
+of protection. Flows that are discharged over the Leyden Lake spillway
+may be intercepted by the Farmers’ High Line Canal and can lead to other
+potential damages.</p>
+<p><strong>Problem Area 4B - Church Ditch</strong><br />
+The Leyden Creek crossing with the Church Ditch lacks capacity to convey
+the flow without overtopping the canal. The canal embankment was eroded
+during the September 2013 flood due to the lack of capacity. This
+ultimately diverted flows from the Church Ditch into Leyden Lake. No
+structures are present in the vicinity of the Church Ditch crossing.</p>
+<p><strong>Problem Area 4C - Quaker Street</strong><br />
+The existing crossing at Quaker Street has less than a 2-year capacity,
+causing excess flows to overtop the road. This lack of conveyance
+capacity also contributes to the flooding associated with Problem Area
+4D.</p>
+<p><strong>Problem Area 4D - Leyden Townsite</strong><br />
+Upstream of the Quaker Street crossing, within the Leyden Townsite
+subdivision, four structures are at risk within the 100-yr regulatory
+floodplain, including two homes. The source of the flood hazards in the
+area are due to the lack of channel conveyance capacity and the
+overtopping at Quaker Street.</p>
+<p><strong>Problem Area 4E - Pattridge Open Space</strong><br />
+Through Pattridge Open Space, steep longitudinal slopes have led to high
+velocities, causing erosion of the banks of Leyden Creek. As further
+development occurs upstream and flows increase, grade control is
+warranted to address future degradation.</p>
+<p><strong>Problem Area 4F - West 82<sup>nd</sup> Avenue</strong> 
+The culvert crossing at West 82<sup>nd</sup> Avenue currently has less than a
+5-year capacity. The City of Arvada would like to maintain 100-year
+conveyance capacity for all major roadway crossings.</p>
+<p><strong>Problem Area 4G - Blue Mountain Estates</strong><br />
+During the September 2013 flood, flows from the Blue Mountain Estates
+area eroded the shoulders of Blue Mountain Road and diverted water into
+the Leyden Creek watershed. Not only did this require repair from the
+City of Arvada, but it also limited access to Blue Mountain Estates
+during the flood. The City of Arvada wishes to maintain a higher level
+of capacity for Blue Mountain Road and reduce the potential for future
+damages in the area, as seen in the Drainage Problem Area Figures in
+<a href="../appendix-c"><em>APPENDIX C - Hydraulic Analysis</em></a>.</p>
+<h2 id="43-previous-analysis">4.3 Previous Analysis<a class="headerlink" href="#43-previous-analysis" title="Permanent link"></a></h2>
+<p>Previous analysis of the Leyden Creek watershed consists of the
+Ralston/Leyden Creek Major Drainageway Planning by Wright-McLaughlin in
+1977 and the Flood Hazard Delineation Ralston Creek - Leyden Creek in
+2004 by Boyle Engineering. The 1977 MDP identified the road crossings
+throughout the watershed to be improved from West 82<sup>nd</sup> Avenue (Leyden
+Road in 1977 MDP) to Simms Street. The 2004 FHAD identified the Alkire
+Street crossing as “inadequately sized to convey more than nuisance
+flows and results in overtopping of the street and shallow flooding to
+the east of Alkire Street during larger events.” The water surface
+elevations downstream of the Leyden Lake to W 75<sup>th</sup> Place have increase
+due to increased discharges from the dam due to inaccurate elevations
+used in the rating curve in previous studies.</p>
+          <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 ICON Engineering, Inc. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../hydrologic-analysis/" title="Hydrologic Analysis">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Hydrologic Analysis
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../alternative-analysis/" title="Alternative Analysis">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Alternative Analysis
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '..';
+      var repo_id  = 'iconengineering/leyden-creek-master-plan';
+    </script>
+    <script src="../assets/javascripts/application-dfb6964a49.js"></script>
+    
+      <script src="../assets/js/map2-1.js"></script>
+    
+      <script src="../assets/js/map2-2.js"></script>
+    
+      <script src="../assets/js/map6-1.js"></script>
+    
+      <script src="../assets/js/map7-1.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-66511604-1', 'iconengineering.github.io');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>LCM Master Plan</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.amber-lime.min.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-66511604-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+  <style>
+    #map { position:absolute; height: calc(100vh - 64px); width: calc(100vw - 240px); }
+    @media only screen and (max-width: 1024px) {
+      #map {height: calc(100vh - 56px); width: 100%;}
+}
+  </style>
+</head>
+<body>
+<!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+  <header class="demo-header mdl-layout__header  mdl-color--blue-grey-700 mdl-color-text--blue-grey-50">
+    <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title"><a href="../../../" class="title-link">Leyden Creek Master Plan</a>
+    <span class="mdl-color-text--blue-grey-200"> Conceptual Plan</span></span>
+      <div class="mdl-layout-spacer"></div>
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--blue-grey-400 mdl-cell--hide-tablet" id="hdrbtn">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+          <li class="mdl-menu__item" onclick="printCanvas()">Print</li>
+          <li class="mdl-menu__item">Contact</li>
+          <li class="mdl-menu__item">Legal information</li>
+        </ul>
+      </div>
+    </header>
+  </header>
+  <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-200 mdl-shadow--2dp">
+    <header class="demo-drawer-header mdl-shadow--2dp">
+          <img src="../../../assets/img/UDFCD_NEW.png" class="demo-avatar" style="margin-left:auto;margin-right:auto;padding:.8em;max-width:50px;max-height:50px;">
+          <img src="../../../assets/img/icon-logo-horizontal.png" class="demo-avatar">
+    </header>
+    <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-700">
+
+        <span class="demo-section-title mdl-color-text--blue-grey-100">Base Map</span>
+        <div id="menu">
+        <div class="demo-toggles">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-100" for="basic">
+            <input type="radio" id="basic" class="mdl-radio__button" name="rtoggle" value='satellite-streets-v9' checked>
+            <span class="mdl-radio__label">Satellite</span>
+          </label>
+        </div>
+        <div class="demo-toggles">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-100" for="light">
+            <input type="radio" id="light" class="mdl-radio__button" name="rtoggle" value="light-v9">
+            <span class="mdl-radio__label">Light</span>
+          </label>
+        </div>
+        </div>
+
+          <div class="mdl-tabs mdl-js-tabs">
+            <div class="demo-tabs-bar mdl-tabs__tab-bar">
+                <a href="#layers-panel" class="demo-tabs mdl-tabs__tab is-active">Layers</a>
+                <a href="#legend-panel" class="demo-tabs mdl-tabs__tab">Legend</a>
+            </div>
+
+<!-- LAYERS PANEL -->
+
+    <div class="mdl-tabs__panel is-active" id="layers-panel">
+      <ul class="demo-list-control mdl-list">
+          <li class="mdl-list__item layer-heading">
+            <span class="mdl-list__item-secondary-content">
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400">
+                Proposed Improvements
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="propFloodplain">
+                <input type="checkbox" id="propFloodplain" class="mdl-switch__input layer-on" onclick="toggleLayer('100yrProposed')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Floodplain
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              100-year Floodplain after Proposed Improvements
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-off" for="grading">
+                <input type="checkbox" id="grading" class="mdl-switch__input layer-off" onclick="toggleThree('proposedGradingMjr','proposedGradingMnr','gradingLabels')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Proposed Grading
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-off" for="drop">
+                <input type="checkbox" id="drop" class="mdl-switch__input layer-off" onclick="toggleLayer('dropStructure')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Drop Structures
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-off" for="xing">
+                <input type="checkbox" id="xing" class="mdl-switch__input layer-off" onclick="toggleTwo('xingStructure','culvertWingwalls')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Xing Structures
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400">
+              and Culvert Wingwalls
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-off" for="check">
+                <input type="checkbox" id="check" class="mdl-switch__input layer-off" onclick="toggleLayer('checkStructures')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Check Structures
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-off" for="boulder">
+                <input type="checkbox" id="boulder" class="mdl-switch__input layer-off" onclick="toggleLayer('boulderWalls')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Boulder Walls
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-off" for="propStream">
+                <input type="checkbox" id="propStream" class="mdl-switch__input layer-off" onclick="toggleLayer('proposedStream')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Stream Alignment
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-off" for="trails">
+                <input type="checkbox" id="trails" class="mdl-switch__input layer-off" onclick="toggleLayer('futureTrails')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Future Trails
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-ff" for="wetlands">
+                <input type="checkbox" id="wetlands" class="mdl-switch__input layer-off" onclick="toggleLayer('wetland')" />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Wetlands
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Wetland Mitigation
+              </span>
+            </span>
+          </li>
+          <li class="mdl-list__item layer-heading">
+            <span class="mdl-list__item-secondary-content">
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400">
+                Existing Conditions
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="centerline">
+                <input type="checkbox" id="centerline" class="mdl-switch__input layer-on" onclick="toggleTwo('reaches','reachLabels')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Stream Centerline
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Leyden Creek
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="streams">
+                <input type="checkbox" id="streams" class="mdl-switch__input layer-on" onclick="toggleTwo('streams','streamsLabels')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Streams
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Other Hydrographic Features
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="efFloodplain">
+                <input type="checkbox" id="efFloodplain" class="mdl-switch__input layer-on" onclick="toggleLayer('effectiveFldpln')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Floodplain
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Effective FEMA Floodplain
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="structures">
+                <input type="checkbox" id="structures" class="mdl-switch__input layer-on" onclick="toggleLayer('fldplnStructures')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Structures
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Structures in Effective Floodplain
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="bounds">
+                <input type="checkbox" id="bounds" class="mdl-switch__input layer-on" onclick="toggleLayer('bounds')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Project Bounds
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="arvada">
+                <input type="checkbox" id="arvada" class="mdl-switch__input layer-on" onclick="toggleTwo('arvadaFill','arvada')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Arvada
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              City Limits
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="devs">
+                <input type="checkbox" id="devs" class="mdl-switch__input layer-on" onclick="toggleLayer('developments')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Developments
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              Lorem Ipsum
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="gages">
+                <input type="checkbox" id="gages" class="mdl-switch__input layer-on" onclick="toggleLayer('gages')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Gages
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              UDFCD Stream Gages
+              </span>
+            </span>
+          </li>
+          <li class="demo-list-item mdl-list__item mdl-list__item--two-line mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-action">
+              <label class="mdl-switch mdl-js-switch label-on" for="storage">
+                <input type="checkbox" id="storage" class="mdl-switch__input layer-on" onclick="toggleLayer('storage')" checked />
+              </label>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              Storage
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400 layer-description">
+              UDFCD Stream Gages
+              </span>
+            </span>
+          </li>
+          <!--  This can be used for inline legends
+            <i class="material-icons mdl-color-text--brown-600">remove</i>
+          -->
+          </li>
+      </ul>
+      </div> <!-- End Layer Panel -->
+
+<!-- LEGEND PANEL -->
+
+      <div class="mdl-tabs__panel" id="legend-panel">
+        <ul class="demo-list-icon mdl-list">
+          <li class="mdl-list__item layer-heading">
+            <span class="mdl-list__item-secondary-content">
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400">
+                Proposed Improvements
+              </span>
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--cyan-A200">more_horiz</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Floodplain
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--deep-orange-900">remove</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Proposed Grading
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--amber-500">crop_free</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Drop Structures
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--deep-orange-500">crop_free</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Xing Structures
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--purple-A400">more_horiz</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Check Structures
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--deep-purple-A400">more_horiz</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Boulder Walls
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--yellow-A200">remove</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Stream Alignment
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--red-A100">remove</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Future Trails
+            </span>
+          </li>
+
+          <hr class="hr-dash"/>
+
+          <li class="mdl-list__item layer-heading">
+            <span class="mdl-list__item-secondary-content">
+              <span class="mdl-list__item-secondary-info mdl-color-text--blue-grey-400">
+                Existing Conditions
+              </span>
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--grey-900">remove</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Stream Centerline
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--light-blue-500">remove</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Streams
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--blue-500">stop</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            100-yr Floodplain
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--blue-100">stop</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            500-yr Floodplain
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--yellow-500">stop</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Structures
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--green-500">stop</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Wetlands
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--indigo-500">crop_16_9</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Project Bounds
+            </span>
+          </li>
+
+          <hr class="hr-dash"/>
+
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--brown-500">stop</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Jeffco Landfill
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon mdl-color-text--lime-500">stop</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Leyden Rock
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--teal-500">stop</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Leyden Ranch West
+            </span>
+          </li>
+
+          <hr class="hr-dash"/>
+
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--deep-purple-500">lens</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Gages
+            </span>
+          </li>
+          <li class="demo-legend-item mdl-list__item mdl-color-text--blue-grey-100">
+            <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon  mdl-color-text--cyan-500">lens</i>
+            </span>
+            <span class="demo-list-secondary mdl-list__item-secondary-content">
+            Storage
+            </span>
+          </li>
+        </ul>
+      </div> <!-- End Legend Panel -->
+      </div> <!-- End Panel tabs -->
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div id='map'></div>
+    </div>
+  </main>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../../assets/js/toggleLayer.js"></script>
+<script src="lcm-recPlan-v23.js">
+</script>
+
+</body>
+</html>

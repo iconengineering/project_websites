@@ -1,0 +1,3434 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.22.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.22.0/mapbox-gl.css" rel="stylesheet">
+    
+      
+        <title>Conceptual Design - Leyden Creek Master Plan</title>
+      
+      
+      
+        <link rel="canonical" href="http://iconengineering.github.io/leyden-creek-master-plan/conceptual-design/">
+      
+      
+        <meta name="author" content="ICON Engineering">
+      
+    
+    <meta property="og:url" content="http://iconengineering.github.io/leyden-creek-master-plan/conceptual-design/">
+    <meta property="og:title" content="Leyden Creek Master Plan">
+    <meta property="og:image" content="http://iconengineering.github.io/leyden-creek-master-plan/conceptual-design//../assets/img/UDFCD_NEW.jpg">
+    <meta name="apple-mobile-web-app-title" content="Leyden Creek Master Plan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../assets/img/UDFCD_NEW.jpg">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../assets/fonts/icon.eot?52m981');
+      	src: url('../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../assets/stylesheets/application-c279a209f4.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/palettes-d790dcf0d5.css">
+    
+    
+      
+      
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Condensed:300,400,500,700|Ubuntu+Mono">
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Ubuntu+Mono">
+      <style>
+        h1,h2,h3,h4,h5,h6 {
+          font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+        }
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+    <script src="../assets/javascripts/modernizr-4a5cc7e01e.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-blue-grey palette-accent-amber">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+          </span>
+        
+        Leyden Creek Master Plan <span class="subtitle">Conceptual Design</span>
+      </div>
+    </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/iconengineering" title="@iconengineering on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/iconengineering/leyden-creek-master-plan" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../assets/img/UDFCD_NEW.jpg">
+        </div>
+      
+      <div class="name">
+        <strong>
+          Leyden Creek Master Plan
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          iconengineering/leyden-creek-master-plan
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="../http://www.iconeng.com/wordpress/wp-content/uploads/2015/09/Leyden-Creek-Major-Drainageway-Plan-2015.pdf" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download PDF
+            </a>
+          </li>
+        </ul>
+      
+      
+      <hr>
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Table of Contents" href="..">
+      Table of Contents
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Introduction" href="../introduction/">
+      Introduction
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Study Area Description" href="../study-area-description/">
+      Study Area Description
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Hydrologic Analysis" href="../hydrologic-analysis/">
+      Hydrologic Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Hydraulic Analysis" href="../hydraulic-analysis/">
+      Hydraulic Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Alternative Analysis" href="../alternative-analysis/">
+      Alternative Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Recommended Plan" href="../recommended-plan/">
+      Recommended Plan
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="current" title="Conceptual Design" href="./">
+      Conceptual Design
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="7.1 Plan Development Overview" href="#71-plan-development-overview">
+                7.1 Plan Development Overview
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="7.2 Master Plan Description" href="#72-master-plan-description">
+                7.2 Master Plan Description
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="7.3 Prioritization and Phasing" href="#73-prioritization-and-phasing">
+                7.3 Prioritization and Phasing
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="7.4 Water Quality Impacts" href="#74-water-quality-impacts">
+                7.4 Water Quality Impacts
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="7.5 Operations and Maintenance" href="#75-operations-and-maintenance">
+                7.5 Operations and Maintenance
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="7.6 Environmental and Safety Assessment" href="#76-environmental-and-safety-assessment">
+                7.6 Environmental and Safety Assessment
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="References" href="../references/">
+      References
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix B - Hydrologic Analysis" href="../appendix-b/">
+      Appendix B - Hydrologic Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix C - Hydraulic Analysis" href="../appendix-c/">
+      Appendix C - Hydraulic Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix F - Alternatives Analysis" href="../appendix-f/">
+      Appendix F - Alternatives Analysis
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix G - Conceptual Design Information" href="../appendix-g/">
+      Appendix G - Conceptual Design Information
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Appendix H - Master Plan Maps and Profiles" href="../appendix-h/">
+      Appendix H - Master Plan Maps and Profiles
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+            
+              
+              <li>
+                <a href="https://github.com/iconengineering" target="_blank" title="@iconengineering on GitHub">
+                  @iconengineering on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="conceptual-design">Conceptual Design<a class="headerlink" href="#conceptual-design" title="Permanent link"></a></h1>
+<h2 id="71-plan-development-overview">7.1 Plan Development Overview<a class="headerlink" href="#71-plan-development-overview" title="Permanent link"></a></h2>
+<p>The Selected Plan letter from the project sponsors was issued on April
+29, 2015, and can be found in <em>APPENDIX A - Project Correspondence (PDF version only)</em>. The
+Selected plan identifies the alternatives selected by the project
+sponsors to proceed into the Conceptual Design phase of the project. The
+Selected Plan generally followed the recommended plan alternatives, with
+the modification of choosing the 100-year Conveyance Alternative for
+Reach 1, between West 72nd Avenue and Simms Street. Incorporation of
+pedestrian trails were evaluated at Quaker Street and West 72<sup>nd</sup> Avenue
+in the conceptual design phase.</p>
+<p>The master plan improvements are intended to mitigate flooding, and
+prevent erosion along Leyden Creek. Roadway crossings and the crossing
+with the Croke Canal are intended to convey the 100-year future
+conditions discharges. An exception is at West 75th Place, which will
+convey the 10-year discharge in accordance with Jefferson County
+Criteria. Future erosion potential will be managed implementing check
+structures. Mitigation of the 100-year floodplain within the Woodland
+Valley No. 7 subdivision is proposed through the implementation of
+adjacent channel improvements. Finally, the master plan improvements
+incorporate trail connections to the regional trail networks, where
+applicable.</p>
+<h4 id="711-general-recommendations">7.1.1 General Recommendations<a class="headerlink" href="#711-general-recommendations" title="Permanent link"></a></h4>
+<p>Land-use changes to contributing watersheds affect the flood hazard
+nature (i.e., runoff rates, volumes and depths), the transport of
+sediment, and the water quality of the receiving natural waterways. To
+encourage the implementation of this master plan, it is recommended:</p>
+<ol>
+<li>That the controlling jurisdictions take steps to stabilize all major
+    waterways when their watershed urbanizes, rehabilitate existing
+    degraded reaches of the waterways and their tributaries, and
+    aggressively control erosion and sediment transport during
+    construction activities.</li>
+<li>That Sponsors and any other jurisdiction having land use control
+    powers in this watershed require new land development and
+    significant redevelopment and publicly funded projects to provide to
+    the maximum extent practicable runoff volume control practices
+    (i.e., minimize directly connected impervious areas and employ
+    infiltrating BMPs) whenever site conditions permit.</li>
+<li>That the controlling jurisdictions take steps to require that all
+    BMPs for all new development, redevelopment, and publicly funded
+    projects provide to the maximum extent practicable a Water Quality
+    Capture Volume (WQCV) as recommended in the Urban Storm Drainage
+    Criteria Manual - Volume 3, after accounting for volume reductions
+    achieved using volume control practices as recommended under item
+    b above.</li>
+<li>That all jurisdiction having land use control powers in this
+    watershed continue to implement their floodplain management
+    regulations, including regulation of the 100-year floodway
+    and floodplain.</li>
+<li>If not already done so, all jurisdictions should adopt a policy of
+    preserving the defined floodplains as open spaces to the maximum
+    extent possible and that at least 1-foot freeboard be provided for
+    the lowest floor above the 100-year flood elevation shown on the
+    latest flood hazard area delineation of FIRM maps for all human
+    occupied structures built adjacent to, or within, the defined
+    100-year floodplains.</li>
+<li>That all jurisdiction having land use control powers in this
+    watershed continue to participate in FEMA’s flood insurance
+    Community Rating System and public education programs.</li>
+</ol>
+<h4 id="712-conceptual-design-cost-estimates">7.1.2 Conceptual Design Cost Estimates<a class="headerlink" href="#712-conceptual-design-cost-estimates" title="Permanent link"></a></h4>
+<p>Cost estimates for the conceptual design were developed using UDFCD’s
+master planning cost estimating spreadsheet UD-MP COST, version 2.2. The
+Colorado Construction Index was updated to the First Quarter 2015 value
+of 1.0703. Utility relocation estimates were determined from information
+provided by the City of Arvada, Century Link, and XCEL Energy. The City
+of Arvada provided sanitary sewer information with approximate depths
+and the location and sizing of the water mains. Century Link and XCEL
+Energy provided approximate utility locates at each street crossing.</p>
+<p>Easement costs were calculated from the easement area required for each
+of the property and the actual land value provided by Jefferson County.</p>
+<h2 id="72-master-plan-description">7.2 Master Plan Description<a class="headerlink" href="#72-master-plan-description" title="Permanent link"></a></h2>
+<p>The Conceptual Design is described on a reach by reach basis in Sections
+7.2.1 through 7.2.4. Cost Estimates for the Selected Plan can be found
+in <a href="#table-7-5-cost-estimate-summary-by-reach">Table 7-5: Cost Estimate Summary by Reach</a>. Schematics for the
+Selected Plan can be found in <a href="#figure-7-1-master-plan-schematic">Figure 7-1</a>. Master Plan maps and
+profiles can be found in <a href="../appendix-h"><em>APPENDIX H</em></a>.</p>
+<p>Downstream of Leyden Lake a design slope of 0.45% was selected for
+stabilization of the main channel. Upstream of the Leyden Lake, a design
+slope of 0.60% was selected. These values were chosen to in accordance
+of UDFCD criteria, previous master plans, and discussion with the
+project sponsors.</p>
+<p>In general, toe protection along Leyden Creek is proposed to allow for a
+free meander of the low flow channel bottom, except in areas in close
+proximity to existing or proposed infrastructure. Bio-engineered methods
+and riparian vegetation is encouraged to be used as an alternate to
+riprap.</p>
+<p>Two feet of cover above new storm sewers was assumed for all roadway
+crossings. Whenever possible, two feet of clearance between the top of
+sanitary sewers and the bottom of culverts was proposed. When this
+clearance was not feasible due to the size of the required crossing
+structure, one foot of clearance was provided along with a concrete
+encasement for the sanitary sewer. All other utilities were assumed to
+be relocated, if required.</p>
+<p>Grade control was established through a combination of sloping drop
+structure, check structures and riffle drop structures. Check structures
+were used in areas which may experience future channel degradation. Drop
+structures were selected along proposed channels alignments and areas
+with significant grade changes between existing and proposed channel
+configurations. When the grade changes were less than 2-feet in height,
+riffle type drop structures were recommended.</p>
+<h4 id="721-reach-1-confluence-with-ralston-creek-to-leyden-creek-park-selected-plan">7.2.1 Reach 1 - Confluence with Ralston Creek to Leyden Creek Park Selected Plan<a class="headerlink" href="#721-reach-1-confluence-with-ralston-creek-to-leyden-creek-park-selected-plan" title="Permanent link"></a></h4>
+<p>The selected plan for Reach 1 recommends improving the bridge at West
+72<sup>nd</sup> Avenue and increasing the conveyance capacity of the channel
+downstream. A 10 foot concrete pedestrian trail was also included from
+Simms Street through West 72<sup>nd</sup> Avenue along with a proposed pedestrian
+underpass with eight feet of clearance. This underpass will connect to
+the existing trail at Leyden Creek Park. Two sloping boulder drop
+structures upstream of West 72<sup>nd</sup> Avenue lower the channel invert to
+allow adequate clearance for the trail underpass. A 110 ft. span bridge
+at West 72<sup>nd</sup> Avenue has been proposed to convey the 100-year discharge
+of 2,083 cfs. Double stacked boulder walls have been proposed on both
+sides of the channel to minimize the required easements on private
+property. The boulder wall transitions to standard side slopes before
+tying into existing channel just upstream of Simms Street. The existing
+drop structure just upstream of Simms Street is proposed to be removed
+to accommodate the improvements.</p>
+<p>This project would remove the only structure in the 100-yr floodplain
+downstream of West 72<sup>nd</sup> Avenue, the First Church of Arvada. All
+residential structures in the Woodland Valley No. 3 subdivision would
+also be removed from the Zone X Shallow Flooding Hazard Area.</p>
+<p>Upstream of West 72<sup>nd</sup> Avenue, in Leyden Creek Park, the channel is
+proposed to be lowered to remove the regulatory floodplain from the
+homes in the Woodland Valley No. 7 subdivision. A riffle drop structure
+is proposed to transition the channel back to existing grades at the
+upstream end of improvements. Approximately 530 feet of pedestrian path
+will need to be relocated with the proposed channel project.</p>
+<p>The eight homes currently within the 100-year floodplain would all be
+removed by this project.</p>
+<p>There are several known utilities in this project reach. These utilities
+will need to be protected, or relocated.</p>
+<ul>
+<li>
+<p>WATER</p>
+<ul>
+<li>
+<p>6 inch AC crossing proposed channel upstream of Simms Street</p>
+</li>
+<li>
+<p>12 inch STL at West 72<sup>nd</sup> Avenue</p>
+</li>
+<li>
+<p>8 inch CI at West 72<sup>nd</sup> Avenue</p>
+</li>
+<li>
+<p>10 inch AC upstream of West 72<sup>nd</sup> Avenue</p>
+</li>
+</ul>
+</li>
+<li>
+<p>SEWER</p>
+<ul>
+<li>
+<p>8 inch VCP near pedestrian bridge upstream of Simms Street</p>
+</li>
+<li>
+<p>8 inch VCP near pedestrian bridge upstream of West 72<sup>nd</sup> Avenue</p>
+</li>
+</ul>
+</li>
+<li>
+<p>XCEL Gas</p>
+</li>
+<li>
+<p>XCEL Electric</p>
+</li>
+<li>
+<p>Century Link</p>
+</li>
+</ul>
+<p><a href="../appendix/h/rec-plan-map/#14.89/39.8260/-105.1299" target="_blank ">Reach 1 Map</a></p>
+<p><a href="../appendix/h/MasterPlanProfiles.pdf" target="_blank ">Reach 1 Profile</a></p>
+<h6 id="table-7-1-reach-1-cost-estimate-summary">Table 7-1 : Reach 1 Cost Estimate Summary<a class="headerlink" href="#table-7-1-reach-1-cost-estimate-summary" title="Permanent link"></a></h6>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Description</th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e">Quantity</th>
+    <th class="tg-031e">Unit</th>
+    <th class="tg-031e">Unit Cost</th>
+    <th class="tg-031e">Total Cost</th>
+  </tr>
+  <tr>
+    <td class="tg-pf7b" colspan="7">Hydraulic Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-u6p0" colspan="7">Sloping Drop Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">Height (ft)</td>
+    <td class="tg-e3zv">Bottom Width (ft)</td>
+    <td class="tg-e3zv">Yn (ft)</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">54</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$136,617.72</td>
+    <td class="tg-lqy6">$136,618.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">2.5</td>
+    <td class="tg-yw4l">54</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$123,143.67</td>
+    <td class="tg-lqy6">$123,144.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Channel Improvements</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Soil Riprap, Type M</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1000</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$75.00</td>
+    <td class="tg-lqy6">$75,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Grouted Boulders, 48"</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1422</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$214.00</td>
+    <td class="tg-lqy6">$304,356.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">12066</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$313,716.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Low Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">233</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$12.00</td>
+    <td class="tg-lqy6">$2,796.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Low Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">661</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$12.00</td>
+    <td class="tg-lqy6">$7,932.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">708</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$18,408.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Landscaping and Maintenance Improvements</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Trail/Path, Concrete (10' Width)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">2030</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$47.00</td>
+    <td class="tg-lqy6">$95,410.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Special Items (User Defined)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removal of existing bridge</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">2000</td>
+    <td class="tg-yw4l">S.F.</td>
+    <td class="tg-lqy6">$50.00</td>
+    <td class="tg-lqy6">$100,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">110 ft span bridge</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">4400</td>
+    <td class="tg-yw4l">S.F.</td>
+    <td class="tg-lqy6">$250.00</td>
+    <td class="tg-lqy6">$1,100,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">2 ft Riffle Drop</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">160</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$150.00</td>
+    <td class="tg-lqy6">$24,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removal of existing pedestrian bridge</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">300</td>
+    <td class="tg-yw4l">S.F.</td>
+    <td class="tg-lqy6">$50.00</td>
+    <td class="tg-lqy6">$15,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">New pedetrian bridge</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">300</td>
+    <td class="tg-yw4l">S.F.</td>
+    <td class="tg-lqy6">$300.00</td>
+    <td class="tg-lqy6">$90,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removal of<br>  drop structure U/S Simms</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">833</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$50.00</td>
+    <td class="tg-lqy6">$41,650.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Land Acquisition</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Easement/ROW Acquisition</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1.02</td>
+    <td class="tg-yw4l">ACRE</td>
+    <td class="tg-lqy6">$162,316.67</td>
+    <td class="tg-lqy6">$165,563.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Capital Improvement Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Pipe Culverts and Storm Drains</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Concrete Box Culverts</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Hydraulic Structures</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$259,762.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Channel Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$749,958.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Detention/Water Quality Facilities</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removals</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Landscaping and Maintenance Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$95,410.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Special Items (User Defined)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$1,370,650.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$2,475,780.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Additional Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Dewatering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$24,757.80</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$24,758.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Mobilization</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$123,789.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Traffic Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$15,000.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$15,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Utility Coordination/Relocation</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$30,000.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$30,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Stormwater Management/Erosion Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$123,789.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Additional Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$317,336.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Land Acquisition Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">ROW/Easements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$165,563.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Land Acquisition Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$165,563.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Other Costs (percentage of Capital Improvement Costs)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Engineering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">15%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$418,967.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Legal/Administrative</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$139,656.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contract<br>  Admin/Construction Management</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">10%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$279,312.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contingency</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">25%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$698,279.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Other Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$1,536,214.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Capital Improvement Costs</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$4,494,893.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Operation and Maintenance Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Description</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-9hbo">Quantity</td>
+    <td class="tg-9hbo">Unit</td>
+    <td class="tg-9hbo">Unit Cost</td>
+    <td class="tg-9hbo">Total Annual Cost</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Hydraulic Structure Maintenance (e.g. debris removal, erosion, structural repairs, etc.)</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$535.00</td>
+    <td class="tg-lqy6">$214.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Channel Maintenance (e.g. sediment &amp; debris removal, erosion, tree &amp; weed removal, etc.)</td>
+    <td class="tg-lqy6">1850</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$2.00</td>
+    <td class="tg-lqy6">$740.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Trail Maintenance (e.g. structural repairs, crusher fines, etc.)</td>
+    <td class="tg-lqy6">2030</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$5.00</td>
+    <td class="tg-lqy6">$2,030.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Total Annual Operation and Maintenance Cost</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$2,984.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Effective Interest Rate</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1.50%</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Operation and Maintenance Costs Over 50 Years</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$104,439.00</td>
+  </tr>
+</table>
+
+<h4 id="722-reach-2-leyden-creek-park-to-upstream-of-alkire-street-selected-plan">7.2.2 Reach 2 - Leyden Creek Park to Upstream of Alkire Street Selected Plan<a class="headerlink" href="#722-reach-2-leyden-creek-park-to-upstream-of-alkire-street-selected-plan" title="Permanent link"></a></h4>
+<p>An extension of Ward Road from West 72<sup>nd</sup> Avenue north to the existing
+alignment was in development at the time of this master plan. 30%
+conceptual design plans were provided by the City of Arvada for
+incorporation into this report. The roadway expansion will include a
+stream crossing downstream of West 75<sup>th</sup> Place as well as two
+pedestrian trail underpasses.</p>
+<p>Twin 9 ft. x 4 ft. RCBC’s are proposed to convey the 10-year discharge
+of 520 cfs below West 75<sup>th</sup> Place to meet Jefferson County Criteria.
+Less than 1 foot of depth of overtopping occurs during the 100-year
+event. A concrete encasement of the sanitary sewer will also be required
+to accommodate the proposed culvert and allow two feet of roadway cover.
+A drop structure transition upstream of the road is also required. This
+project will not have a significant impact on the floodplain and will
+not remove the home downstream of West 75<sup>th</sup> Place from the floodplain.</p>
+<p>To mitigate the roadway overtopping and shallow flooding that impacts
+property to the east of Alkire Street, new box culverts have been
+proposed. Four 12 ft. x 4 ft. RCBC’s are required to convey the 100-year
+discharge without overtopping the low point in Alkire Street. Headwater
+depth at this location is limited by the sanitary crossing located east
+of the stream crossing. This project will require that the existing pond
+features, upstream of Alkire Street, be adjusted and lowered
+accordingly. A 4 foot sloping drop structure is proposed to transition
+back into existing grades along the channel.</p>
+<p>There are two existing structures in the floodplain downstream of the
+proposed project limits east of Alkire Street. Although these
+improvements will not remove these structures from the 100-yr
+floodplain, this project would alleviate the overtopping at Alkire
+Street, removing eleven structures including six residential homes from
+the shallow flooding hazard area.</p>
+<p>Several check structures proposed within Reach 2 will stabilize the
+channel slope preventing future channel degradation</p>
+<p>The only known utility at West 75<sup>th</sup> Place is the sanitary sewer at an
+approximate depth of 8 feet.</p>
+<p>At Alkire Street there are several known utilities:</p>
+<ul>
+<li>
+<p>WATER</p>
+<ul>
+<li>18” PVC at Alkire Street</li>
+</ul>
+</li>
+<li>
+<p>SEWER</p>
+<ul>
+<li>12” PVC at Alkire Street, Depth approximately 9.5 feet</li>
+</ul>
+</li>
+<li>
+<p>Century Link</p>
+</li>
+<li>
+<p>Xcel Electric</p>
+</li>
+<li>
+<p>Xcel Gas</p>
+</li>
+</ul>
+<p><a href="../appendix/h/rec-plan-map/#15.12/39.8334/-105.1413" target="_blank ">Reach 2 Map</a></p>
+<p><a href="../appendix/h/MasterPlanProfiles.pdf" target="_blank ">Reach 2 Profile</a></p>
+<h6 id="table-7-2-reach-2-cost-estimate-summary">Table 7-2 : Reach 2 Cost Estimate Summary<a class="headerlink" href="#table-7-2-reach-2-cost-estimate-summary" title="Permanent link"></a></h6>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Description</th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e">Quantity</th>
+    <th class="tg-031e">Unit</th>
+    <th class="tg-031e">Unit Cost</th>
+    <th class="tg-031e">Total Cost</th>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Concrete Box Culverts</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Box Culvert Pipe</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">Box Height (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-9hbo">Length (ft)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">9</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">2</td>
+    <td class="tg-yw4l">54</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$1,524.02</td>
+    <td class="tg-lqy6">$82,297.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">12</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">50</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$3,673.69</td>
+    <td class="tg-lqy6">$183,684.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Headwall and Toewalls</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-9hbo">Total Span (ft)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">9</td>
+    <td class="tg-yw4l">2</td>
+    <td class="tg-yw4l">21.00</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$1,618.47</td>
+    <td class="tg-lqy6">$3,237.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">12</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">52.00</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$4,272.84</td>
+    <td class="tg-lqy6">$8,546.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Wingwalls (includes wingwalls on either side of channel and concrete apron)</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">Box Rise (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">9</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">2</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$9,214.00</td>
+    <td class="tg-lqy6">$18,428.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">12</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$15,287.41</td>
+    <td class="tg-lqy6">$30,574.80</td>
+  </tr>
+  <tr>
+    <td class="tg-pf7b" colspan="7">Hydraulic Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-u6p0" colspan="7">Sloping Drop Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">Height (ft)</td>
+    <td class="tg-e3zv">Bottom Width (ft)</td>
+    <td class="tg-e3zv">Yn (ft)</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">40</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$116,149.82</td>
+    <td class="tg-lqy6">$116,150.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Check Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Check Structure, Concrete</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">210</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$289.00</td>
+    <td class="tg-lqy6">$60,690.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Channel Improvements</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Soil Riprap, Type M</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">395</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$75.00</td>
+    <td class="tg-lqy6">$29,625.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1432</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$37,232.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">7000</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$182,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Soil Riprap, Type M</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">580</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$75.00</td>
+    <td class="tg-lqy6">$43,500.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Removals</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removal of culvert pipe (D&lt;48")</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">54</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$21.00</td>
+    <td class="tg-lqy6">$1,134.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removal of culvert pipe (48"&lt;D&lt;84")</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">50</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$54.00</td>
+    <td class="tg-lqy6">$2,700.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Special Items (User Defined)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Asphalt Remove and Replace-Alkire</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">270</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$60.00</td>
+    <td class="tg-lqy6">$16,200.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">2 ft. Riffle Drop</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">104</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$150.00</td>
+    <td class="tg-lqy6">$15,600.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Asphalt Remove and Replace-W75th Pl</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">140</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$60.00</td>
+    <td class="tg-lqy6">$8,400.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Concrete Encasement</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">18</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$642.00</td>
+    <td class="tg-lqy6">$11,556.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Land Acquisition</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Easement/ROW Acquisition</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1.10</td>
+    <td class="tg-yw4l">ACRE</td>
+    <td class="tg-lqy6">$105,060.00</td>
+    <td class="tg-lqy6">$115,566.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Capital Improvement Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Pipe Culverts and Storm Drains</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Concrete Box Culverts</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$326,767.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Hydraulic Structures</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$176,840.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Channel Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$292,357.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Detention/Water Quality Facilities</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removals</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$3,834.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Landscaping and Maintenance Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Special Items (User Defined)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$51,756.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$851,554.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Additional Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Dewatering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$8,515.54</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$8,516.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Mobilization</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$42,578.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Traffic Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$25,000.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$25,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Utility Coordination/Relocation</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$30,000.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$30,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Stormwater Management/Erosion Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$42,578.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Additional Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$148,672.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Land Acquisition Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">ROW/Easements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$115,566.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Land Acquisition Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$115,566.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Other Costs (percentage of Capital Improvement Costs)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Engineering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">15%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$150,034.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Legal/Administrative</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$50,011.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contract<br>  Admin/Construction Management</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">10%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$100,023.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contingency</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">25%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$250,057.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Other Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$550,125.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Capital Improvement Costs</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$1,665,917.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Operation and Maintenance Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Description</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-9hbo">Quantity</td>
+    <td class="tg-9hbo">Unit</td>
+    <td class="tg-9hbo">Unit Cost</td>
+    <td class="tg-9hbo">Total Annual Cost</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Culvert Maintenance (e.g. sediment &amp; debris removal, erosion at entrance/exit, structural repairs, etc.)</td>
+    <td class="tg-lqy6">308</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$1.00</td>
+    <td class="tg-lqy6">$154.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Hydraulic Structure Maintenance (e.g. debris removal, erosion, structural repairs, etc.)</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$535.00</td>
+    <td class="tg-lqy6">$107.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Channel Maintenance (e.g. sediment &amp; debris removal, erosion, tree &amp; weed removal, etc.)</td>
+    <td class="tg-lqy6">530</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$2.00</td>
+    <td class="tg-lqy6">$212.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Total Annual Operation and Maintenance Cost</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$473.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Effective Interest Rate</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1.50%</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Operation and Maintenance Costs Over 50 Years</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$16,555.00</td>
+  </tr>
+</table>
+
+<h4 id="723-reach-3-upstream-of-alkire-street-to-leyden-lake-selected-plan">7.2.3 Reach 3 - Upstream of Alkire Street to Leyden Lake Selected Plan<a class="headerlink" href="#723-reach-3-upstream-of-alkire-street-to-leyden-lake-selected-plan" title="Permanent link"></a></h4>
+<p>During the September 2013 event, spill flows from Leyden Creek diverted
+east, flooding areas within the Cameo Estates subdivision. Although the
+flood flows generally exceed that of the 100-year level, a project has
+been proposed to help mitigate future hazards. Mitigation in this area
+includes re-grading of the pond bank east of Cameo Estates which will
+help keep flows within Leyden Creek and prevent overflows from spilling
+towards the Cameo Estates subdivision. Costs have been included for the
+pond embankment, and a new pond outlet structure. An easement cost has
+been included since the pond is located on private property and will
+require coordination with the project owner.</p>
+<p>Downstream of the Croke Canal presents an opportunity for wetland
+mitigation. The wetlands south of Leyden Creek should be maintained and
+improved during final design. A maintenance trail is included which
+should be incorporated into any pedestrian trail expansion in the area.</p>
+<p>At the Croke Canal a triple cell 10 ft. x 3 ft. RCBC will convey the
+100-year discharges underneath the canal eliminating the need for the
+existing siphon and prevent any comingling of flows between the canal
+and Leyden Creek. The downstream bank of the canal will also be
+reinforced, with a defined spillway to protect the canal in the event
+that overtopping occurs. The spillway was designed at the existing
+overtopping elevation ensuring only flows in excess of the canal
+capacity are discharged over the spillway. Feasibility of including a
+purge structure to reduce flows in the canal at this location should be
+investigated in the future between representatives from the Croke Canal
+and City of Arvada; however this purge structure has not been included
+in this plan, at this time.</p>
+<p>Similarly, at Indiana Street a 10 ft. x 6 ft. RCBC is proposed to convey
+the 100-year discharge below the roadway. Several drop structures are
+needed throughout this reach to achieve the grade needed to eliminate
+the siphon flow under the Croke Canal. The only two structures within
+the 100-year floodplain would be removed by the implementation of this
+project.</p>
+<p>There are several known utilities in the project reach:</p>
+<ul>
+<li>
+<p>WATER:</p>
+<ul>
+<li>
+<p>24” STL Consolidated raw water supply at Alkire Street</p>
+</li>
+<li>
+<p>18” PVC at Alkire Street</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Century Link</p>
+</li>
+<li>
+<p>XCEL Electric</p>
+</li>
+</ul>
+<p><a href="../appendix/h/rec-plan-map/#15.06/39.8377/-105.1579" target="_blank ">Reach 3 Map</a></p>
+<p><a href="../appendix/h/MasterPlanProfiles.pdf" target="_blank ">Reach 3 Profile</a></p>
+<h6 id="table-7-3-reach-3-cost-estimate-summary">Table 7-3 : Reach 3 Cost Estimate Summary<a class="headerlink" href="#table-7-3-reach-3-cost-estimate-summary" title="Permanent link"></a></h6>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Description</th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e">Quantity</th>
+    <th class="tg-031e">Unit</th>
+    <th class="tg-031e">Unit Cost</th>
+    <th class="tg-031e">Total Cost</th>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Concrete Box Culverts</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Box Culvert Pipe</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">Box Height (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-9hbo">Length (ft)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">3</td>
+    <td class="tg-yw4l">3</td>
+    <td class="tg-yw4l">104</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$2,286.03</td>
+    <td class="tg-lqy6">$237,747.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">6</td>
+    <td class="tg-yw4l">1</td>
+    <td class="tg-yw4l">56</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$1,001.20</td>
+    <td class="tg-lqy6">$56,067.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Headwall and Toewalls</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-9hbo">Total Span (ft)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">3</td>
+    <td class="tg-yw4l">33.00</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$2,731.41</td>
+    <td class="tg-lqy6">$5,463.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">1</td>
+    <td class="tg-yw4l">12.00</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$993.24</td>
+    <td class="tg-lqy6">$1,986.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Wingwalls (includes wingwalls on either side of channel and concrete apron)</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">Box Rise (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">3</td>
+    <td class="tg-yw4l">3</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$10,002.98</td>
+    <td class="tg-lqy6">$20,006.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">6</td>
+    <td class="tg-yw4l">1</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$12,314.98</td>
+    <td class="tg-lqy6">$24,630.00</td>
+  </tr>
+  <tr>
+    <td class="tg-pf7b" colspan="7">Hydraulic Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-u6p0" colspan="7">Sloping Drop Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">Height (ft)</td>
+    <td class="tg-e3zv">Bottom Width (ft)</td>
+    <td class="tg-e3zv">Yn (ft)</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">20</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$86,913.29</td>
+    <td class="tg-lqy6">$173,827.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">2.5</td>
+    <td class="tg-yw4l">20</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$78,313.29</td>
+    <td class="tg-lqy6">$156,627.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Check Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Check Structure, Concrete</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">160</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$289.00</td>
+    <td class="tg-lqy6">$46,240.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Channel Improvements</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Soil Riprap, Type M</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">750</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$75.00</td>
+    <td class="tg-lqy6">$56,250.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">18-inch Riprap, Type H</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">600</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$86.00</td>
+    <td class="tg-lqy6">$51,600.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Low Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1090</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$12.00</td>
+    <td class="tg-lqy6">$13,080.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">8387</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$218,062.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">18-inch Riprap, Type H</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">200</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$86.00</td>
+    <td class="tg-lqy6">$17,200.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">50</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$1,300.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Detention/Water Quality Facilities</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Detention (User Entered Quantities)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Outlet Works</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$25,000.00</td>
+    <td class="tg-lqy6">$25,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Removals</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removal of culvert pipe (D&lt;48")</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">300</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$21.00</td>
+    <td class="tg-lqy6">$6,300.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Landscaping and Maintenance Improvements</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Wetlands Plantings</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">ACRE</td>
+    <td class="tg-lqy6">$26,758.00</td>
+    <td class="tg-lqy6">$32,110.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Trail/Path, Concrete (10' Width)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">950</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$47.00</td>
+    <td class="tg-lqy6">$44,650.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Special Items (User Defined)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Asphalt Remove and Replace</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">180</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$65.00</td>
+    <td class="tg-lqy6">$11,700.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Concrete Cutoff Wall for Cameo Pond</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">35</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$642.00</td>
+    <td class="tg-lqy6">$22,470.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Land Acquisition</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Easement/ROW Acquisition</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">180</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$65.00</td>
+    <td class="tg-lqy6">$11,700.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Capital Improvement Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Pipe Culverts and Storm Drains</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Concrete Box Culverts</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$345,899.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Hydraulic Structures</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$376,694.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Channel Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$357,492.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Detention/Water Quality Facilities</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$25,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removals</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$6,300.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Landscaping and Maintenance Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$76,760.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Special Items (User Defined)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$34,170.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$1,222,315.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Additional Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Dewatering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$12,223.15</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$12,223.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Mobilization</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$61,116.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Traffic Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$15,000.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$15,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Utility Coordination/Relocation</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$18,400.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$18,400.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Stormwater Management/Erosion Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$61,116.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Additional Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$167,855.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Land Acquisition Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">ROW/Easements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$86,609.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Land Acquisition Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$86,609.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Other Costs (percentage of Capital Improvement Costs)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Engineering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">15%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$208,526.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Legal/Administrative</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$69,509.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contract<br>  Admin/Construction Management</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">10%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$139,017.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contingency</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">25%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$347,543.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Other Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$764,595.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Capital Improvement Costs</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$2,241,374.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Operation and Maintenance Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Description</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-9hbo">Quantity</td>
+    <td class="tg-9hbo">Unit</td>
+    <td class="tg-9hbo">Unit Cost</td>
+    <td class="tg-9hbo">Total Annual Cost</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Culvert Maintenance (e.g. sediment &amp; debris removal, erosion at entrance/exit, structural repairs, etc.)</td>
+    <td class="tg-lqy6">368</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$1.00</td>
+    <td class="tg-lqy6">$184.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Hydraulic Structure Maintenance (e.g. debris removal, erosion, structural repairs, etc.)</td>
+    <td class="tg-lqy6">4</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$535.00</td>
+    <td class="tg-lqy6">$428.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Channel Maintenance (e.g. sediment &amp; debris removal, erosion, tree &amp; weed removal, etc.)</td>
+    <td class="tg-lqy6">1010</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$2.00</td>
+    <td class="tg-lqy6">$404.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Detention/WQ Maintenance (e.g. sediment &amp; debris removal, mucking out, tree &amp; weed removal, structural repairs, etc.)</td>
+    <td class="tg-lqy6">0.5</td>
+    <td class="tg-yw4l">ACRE</td>
+    <td class="tg-lqy6">$1,605.00</td>
+    <td class="tg-lqy6">$401.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="2">Trail Maintenance (e.g. structural repairs, crusher fines, etc.)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">950</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$5.00</td>
+    <td class="tg-lqy6">$950.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Total Annual Operation and Maintenance Cost</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$2,367.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Effective Interest Rate</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1.50%</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Operation and Maintenance Costs Over 50 Years</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$82,844.00</td>
+  </tr>
+</table>
+
+<h4 id="724-reach-4-upstream-of-leyden-lake">7.2.4 Reach 4 - Upstream of Leyden Lake<a class="headerlink" href="#724-reach-4-upstream-of-leyden-lake" title="Permanent link"></a></h4>
+<p>To incorporate the future pedestrian trail, a 180 ft. span bridge is
+proposed at Quaker Street. A 10 foot concrete pedestrian trail with 10
+feet of clearance will provide access to the south along Quaker Street
+for future trailhead and pedestrian bridge east of Quaker Street. Two
+sloping drop structures are proposed upstream of Quaker Street to allow
+adequate roadway cover. This plan follows the current alignment of
+Quaker Street. Future changes to Quaker Street should be considered with
+final design of the improvements. There are four structures in the
+100-year floodplain. The new channel and bridge will remove two of the
+structures from the floodplain, while the other two structures area
+located upstream of the proposed project and would remain in the 100-yr
+floodplain.</p>
+<p>Throughout Pattridge Open Space, check structures have been proposed to
+stabilize the channel slope and prevent future degradation and erosion.</p>
+<p>At West 82<sup>nd</sup> Avenue a five cell 10 ft. x 5 ft. RCBC crossing structure
+has been proposed to convey the 100-year discharge below the roadway.
+Sloping drop structures are required for roadway cover to transition
+between the existing and proposed channel elevations and to provide
+cover at the roadway. During final design spreading out the culverts
+along West 82<sup>nd</sup> Avenue should be investigated to minimize grade change
+in the Pattridge Open Space area.</p>
+<p>Upstream, at Blue Mountain Road, the existing crossing structure is
+proposed to be replaced with an 8 ft. x 6 ft. RCBC. Approximately 1300
+feet of Blue Mountain Road is also proposed to also be reconstructed to
+gain adequate roadway cover over the proposed culverts and to prevent
+overtopping back into the Leyden Creek Watershed. A double stacked 48”
+grouted boulder wall will prevent flows overtopping the railroad from
+contributing to the Leyden Creek watershed. These flows will be conveyed
+under Blue Mountain Road through a second 8 ft. x 6 ft. RCBC east of the
+stream crossing. The final design of elevating Blue Mountain Road should
+investigate any impacts to the homes and property downstream of Blue
+Mountain Road.</p>
+<p>The known utilities in Reach 4 include:</p>
+<p>Quaker Street:</p>
+<ul>
+<li>
+<p>WATER:</p>
+<ul>
+<li>
+<p>12” AC transitioning to a 24” PVC at Quaker Street</p>
+</li>
+<li>
+<p>6” AC Leyden Townsite private system</p>
+</li>
+<li>
+<p>14” PVC in Pattridge Open Space</p>
+</li>
+</ul>
+</li>
+<li>
+<p>XCEL Electric Line at Quaker Street, Pattridge Open Space, and West
+    82<sup>nd</sup> Avenue.</p>
+</li>
+<li>
+<p>XCEL High Pressure Gas</p>
+</li>
+<li>
+<p>CenturyLink</p>
+</li>
+</ul>
+<p><a href="../appendix/h/rec-plan-map/#13.33/39.8428/-105.2002" target="_blank ">Reach 4 Map</a></p>
+<p><a href="../appendix/h/MasterPlanProfiles.pdf" target="_blank ">Reach 4 Profile</a></p>
+<h6 id="table-7-4-reach-4-cost-estimate-summary">Table 7-4 : Reach 4 Cost Estimate Summary<a class="headerlink" href="#table-7-4-reach-4-cost-estimate-summary" title="Permanent link"></a></h6>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Description</th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e"></th>
+    <th class="tg-031e">Quantity</th>
+    <th class="tg-031e">Unit</th>
+    <th class="tg-031e">Unit Cost</th>
+    <th class="tg-031e">Total Cost</th>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Concrete Box Culverts</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Box Culvert Pipe</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">Box Height (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-9hbo">Length (ft)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-yw4l">44</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$4,537.54</td>
+    <td class="tg-lqy6">$199,652.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">8</td>
+    <td class="tg-yw4l">6</td>
+    <td class="tg-yw4l">2</td>
+    <td class="tg-yw4l">35</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$1,590.37</td>
+    <td class="tg-lqy6">$55,663.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Headwall and Toewalls</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-9hbo">Total Span (ft)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-yw4l">55.00</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$4,552.35</td>
+    <td class="tg-lqy6">$9,105.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">8</td>
+    <td class="tg-yw4l">2</td>
+    <td class="tg-yw4l">19.00</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$1,464.33</td>
+    <td class="tg-lqy6">$2,929.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Wingwalls (includes wingwalls on either side of channel and concrete apron)</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">Individual Box Span (ft)</td>
+    <td class="tg-9hbo">Box Rise (ft)</td>
+    <td class="tg-9hbo">No. of Barrels</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$18,869.74</td>
+    <td class="tg-lqy6">$37,739.50</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">8</td>
+    <td class="tg-yw4l">6</td>
+    <td class="tg-yw4l">2</td>
+    <td class="tg-lqy6">2</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$13,953.41</td>
+    <td class="tg-lqy6">$27,906.80</td>
+  </tr>
+  <tr>
+    <td class="tg-pf7b" colspan="7">Hydraulic Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-u6p0" colspan="7">Sloping Drop Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">Height (ft)</td>
+    <td class="tg-e3zv">Bottom Width (ft)</td>
+    <td class="tg-e3zv">Yn (ft)</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">75</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$167,316.61</td>
+    <td class="tg-lqy6">$167,317.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">2.5</td>
+    <td class="tg-yw4l">75</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$150,834.71</td>
+    <td class="tg-lqy6">$150,835.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">49</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$129,307.14</td>
+    <td class="tg-lqy6">$129,307.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">2.5</td>
+    <td class="tg-yw4l">49</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$116,551.19</td>
+    <td class="tg-lqy6">$116,551.00</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">30</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-lqy6">1</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$101,530.48</td>
+    <td class="tg-lqy6">$101,530.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Check Structures</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Check Structure, Concrete</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">2170</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$289.00</td>
+    <td class="tg-lqy6">$627,130.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Channel Improvements</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Soil Riprap, Type M</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">375</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$75.00</td>
+    <td class="tg-lqy6">$28,125.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Low Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">3422</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$12.00</td>
+    <td class="tg-lqy6">$41,064.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">4158</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$108,108.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Low Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">240</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$12.00</td>
+    <td class="tg-lqy6">$2,880.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">4967</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$129,142.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Soil Riprap, Type M</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">400</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$75.00</td>
+    <td class="tg-lqy6">$30,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Excavation, Mid Range</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">23071</td>
+    <td class="tg-yw4l">C.Y.</td>
+    <td class="tg-lqy6">$26.00</td>
+    <td class="tg-lqy6">$599,846.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Grouted Boulders, 36"</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">100</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$203.00</td>
+    <td class="tg-lqy6">$20,300.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Removals</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removal of culvert pipe (48"D&lt;84")</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">163</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$54.00</td>
+    <td class="tg-lqy6">$8,802.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Landscaping and Maintenance Improvements</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Trail/Path, Concrete (10' Width)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">820</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$47.00</td>
+    <td class="tg-lqy6">$38,540.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Special Items (User Defined)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Asphalt Remove and Replace - W 82nd</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">300</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$65.00</td>
+    <td class="tg-lqy6">$19,500.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Asphalt Remove and Replace - BMRoad</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5600</td>
+    <td class="tg-yw4l">S.Y.</td>
+    <td class="tg-lqy6">$65.00</td>
+    <td class="tg-lqy6">$364,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">180 ft. span bridge - Quaker Street</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5400</td>
+    <td class="tg-yw4l">S.F.</td>
+    <td class="tg-lqy6">$250.00</td>
+    <td class="tg-lqy6">$1,350,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Pedestrian Trail Bridge D/S of Quaker</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1400</td>
+    <td class="tg-yw4l">S.F.</td>
+    <td class="tg-lqy6">$350.00</td>
+    <td class="tg-lqy6">$490,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y" colspan="7">Land Acquisition</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Easement/ROW Acquisition</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1.77</td>
+    <td class="tg-yw4l">ACRE</td>
+    <td class="tg-lqy6">$202,258.76</td>
+    <td class="tg-lqy6">$357,998.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Capital Improvement Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Pipe Culverts and Storm Drains</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Concrete Box Culverts</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$332,995.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Hydraulic Structures</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$1,292,670.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Channel Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$959,465.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Detention/Water Quality Facilities</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$0.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Removals</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$8,802.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Landscaping and Maintenance Improvements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$38,540.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Special Items (User Defined)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$2,223,500.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$4,855,972.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Additional Capital Improvement Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Dewatering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$48,559.72</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$48,560.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Mobilization</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$242,799.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Traffic Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$25,000.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$25,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Utility Coordination/Relocation</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$115,000.00</td>
+    <td class="tg-yw4l">L.S.</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$115,000.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Stormwater Management/Erosion Control</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$242,799.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Additional Capital Improvement Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$674,158.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Land Acquisition Costs</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">ROW/Easements</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$357,998.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Land Acquisition Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$357,998.00</td>
+  </tr>
+  <tr>
+    <td class="tg-x5aj" colspan="7">Other Costs (percentage of Capital Improvement Costs)</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Engineering</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">15%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$829,520.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Legal/Administrative</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">5%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$276,507.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contract<br>  Admin/Construction Management</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">10%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$553,013.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Contingency</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">25%</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">$1,382,533.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Subtotal Other Costs</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$3,041,573.00</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Capital Improvement Costs</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$8,929,701.00</td>
+  </tr>
+  <tr>
+    <td class="tg-wht2" colspan="7">Master Plan Operation and Maintenance Cost Summary</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Description</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-9hbo">Quantity</td>
+    <td class="tg-9hbo">Unit</td>
+    <td class="tg-9hbo">Unit Cost</td>
+    <td class="tg-9hbo">Total Annual Cost</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Culvert Maintenance (e.g. sediment &amp; debris removal, erosion at entrance/exit, structural repairs, etc.)</td>
+    <td class="tg-lqy6">335</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$1.00</td>
+    <td class="tg-lqy6">$168.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Hydraulic Structure Maintenance (e.g. debris removal, erosion, structural repairs, etc.)</td>
+    <td class="tg-lqy6">5</td>
+    <td class="tg-yw4l">EA</td>
+    <td class="tg-lqy6">$535.00</td>
+    <td class="tg-lqy6">$535.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="3">Channel Maintenance (e.g. sediment &amp; debris removal, erosion, tree &amp; weed removal, etc.)</td>
+    <td class="tg-lqy6">1045</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$2.00</td>
+    <td class="tg-lqy6">$418.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj" colspan="2">Trail Maintenance (e.g. structural repairs, crusher fines, etc.)</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">820</td>
+    <td class="tg-yw4l">L.F.</td>
+    <td class="tg-lqy6">$5.00</td>
+    <td class="tg-lqy6">$820.00</td>
+  </tr>
+  <tr>
+    <td class="tg-0898">Total Annual Operation and Maintenance Cost</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-l2oz">$1,941.00</td>
+  </tr>
+  <tr>
+    <td class="tg-ejgj">Effective Interest Rate</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-lqy6">1.50%</td>
+  </tr>
+  <tr>
+    <td class="tg-s88y">Total Operation and Maintenance Costs Over 50 Years</td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-pmsa"></td>
+    <td class="tg-o6ir">$67,934.00</td>
+  </tr>
+</table>
+
+<h6 id="table-7-5-cost-estimate-summary-by-reach">Table 7-5 : Cost Estimate Summary by Reach<a class="headerlink" href="#table-7-5-cost-estimate-summary-by-reach" title="Permanent link"></a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Reach</th>
+<th align="left">Project</th>
+<th align="left">Jurisdiction</th>
+<th>Reach Length (mi.)</th>
+<th align="right">Capital</th>
+<th align="right">Easement/ROW</th>
+<th align="right">Eng/Admin/Legal</th>
+<th align="right">Contingency</th>
+<th align="right">Total Capital Cost</th>
+<th align="right">50-year O&amp;M Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Reach 1</td>
+<td align="left">W 72nd Avenue</td>
+<td align="left">City of Arvada</td>
+<td>0.25</td>
+<td align="right">$2,673,786</td>
+<td align="right">$141,346</td>
+<td align="right">$802,136</td>
+<td align="right">$668,447</td>
+<td align="right">$4,285,715</td>
+<td align="right">$78,889</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Woodland Valley</td>
+<td align="left">City of Arvada</td>
+<td>0.05</td>
+<td align="right">$119,330</td>
+<td align="right">$24,217</td>
+<td align="right">$35,800</td>
+<td align="right">$29,833</td>
+<td align="right">$209,180</td>
+<td align="right">$25,550</td>
+</tr>
+<tr>
+<td align="left"><strong>Reach 1</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td><strong>0.83</strong></td>
+<td align="right"><strong>$2,793,116</strong></td>
+<td align="right"><strong>$165,563</strong></td>
+<td align="right"><strong>$837,936</strong></td>
+<td align="right"><strong>$698,280</strong></td>
+<td align="right"><strong>$4,494,895</strong></td>
+<td align="right"><strong>$104,439</strong></td>
+</tr>
+<tr>
+<td align="left">Reach 2</td>
+<td align="left">W. 75th Place</td>
+<td align="left">Jefferson County</td>
+<td>0.10</td>
+<td align="right">$240,334</td>
+<td align="right">$67,013</td>
+<td align="right">$72,100</td>
+<td align="right">$60,084</td>
+<td align="right">$439,531</td>
+<td align="right">$9,310</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Alkire Street</td>
+<td align="left">City of Arvada</td>
+<td>0.15</td>
+<td align="right">$692,525</td>
+<td align="right">$48,553</td>
+<td align="right">$207,758</td>
+<td align="right">$173,131</td>
+<td align="right">$1,121,967</td>
+<td align="right">$7,245</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Check Structures (3)</td>
+<td align="left">Jefferson County</td>
+<td>--</td>
+<td align="right">$67,367</td>
+<td align="right">$0</td>
+<td align="right">$20,210</td>
+<td align="right">$16,842</td>
+<td align="right">$104,419</td>
+<td align="right">$0</td>
+</tr>
+<tr>
+<td align="left"><strong>Reach 2</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td><strong>1.20</strong></td>
+<td align="right"><strong>$1,000,226</strong></td>
+<td align="right"><strong>$115,566</strong></td>
+<td align="right"><strong>$300,068</strong></td>
+<td align="right"><strong>$250,057</strong></td>
+<td align="right"><strong>$1,665,917</strong></td>
+<td align="right"><strong>$16,555</strong></td>
+</tr>
+<tr>
+<td align="left">Reach 3</td>
+<td align="left">West of Cameo Estates</td>
+<td align="left">Jefferson County</td>
+<td>--</td>
+<td align="right">$73,228</td>
+<td align="right">$29,284</td>
+<td align="right">$21,968</td>
+<td align="right">$18,307</td>
+<td align="right">$142,787</td>
+<td align="right">$14,035</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Indiana Street / Croke Canal</td>
+<td align="left">Jefferson County</td>
+<td>0.27</td>
+<td align="right">$1,265,616</td>
+<td align="right">$57,325</td>
+<td align="right">$379,685</td>
+<td align="right">$316,404</td>
+<td align="right">$2,019,030</td>
+<td align="right">$35,560</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Check Structures (3)</td>
+<td align="left">City of Arvada</td>
+<td>--</td>
+<td align="right">$51,326</td>
+<td align="right">$0</td>
+<td align="right">$15,398</td>
+<td align="right">$12,832</td>
+<td align="right">$79,556</td>
+<td align="right">$0</td>
+</tr>
+<tr>
+<td align="left"><strong>Reach 3</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td><strong>1.43</strong></td>
+<td align="right"><strong>$1,390,170</strong></td>
+<td align="right"><strong>$86,609</strong></td>
+<td align="right"><strong>$417,051</strong></td>
+<td align="right"><strong>$347,543</strong></td>
+<td align="right"><strong>$2,241,373</strong></td>
+<td align="right"><strong>$49,595</strong></td>
+</tr>
+<tr>
+<td align="left">Reach 4</td>
+<td align="left">Quaker Street</td>
+<td align="left">City of Arvada</td>
+<td>0.13</td>
+<td align="right">$2,747,524</td>
+<td align="right">$336,778</td>
+<td align="right">$824,257</td>
+<td align="right">$686,881</td>
+<td align="right">$4,595,440</td>
+<td align="right">$43,960</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Pattridge Open Space</td>
+<td align="left">City of Arvada</td>
+<td>2.08</td>
+<td align="right">$701,115</td>
+<td align="right">$0</td>
+<td align="right">$210,335</td>
+<td align="right">$175,279</td>
+<td align="right">$1,086,729</td>
+<td align="right">$0</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">W. 82nd Avenue</td>
+<td align="left">City of Arvada</td>
+<td>0.15</td>
+<td align="right">$768,277</td>
+<td align="right">$774</td>
+<td align="right">$230,484</td>
+<td align="right">$192,069</td>
+<td align="right">$1,191,604</td>
+<td align="right">$19,005</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Blue Mountain Estates</td>
+<td align="left">City of Arvada</td>
+<td>--</td>
+<td align="right">$1,313,212</td>
+<td align="right">$20,446</td>
+<td align="right">$393,964</td>
+<td align="right">$328,303</td>
+<td align="right">$2,055,925</td>
+<td align="right">$4,970</td>
+</tr>
+<tr>
+<td align="left"><strong>Reach 4</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td><strong>6.46</strong></td>
+<td align="right"><strong>$5,530,128</strong></td>
+<td align="right"><strong>$357,998</strong></td>
+<td align="right"><strong>$1,659,040</strong></td>
+<td align="right"><strong>$1,382,532</strong></td>
+<td align="right"><strong>$8,929,698</strong></td>
+<td align="right"><strong>$67,935</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><strong>Master Plan Total Cost</strong></td>
+<td align="left"></td>
+<td><strong>9.92</strong></td>
+<td align="right"><strong>$10,713,640</strong></td>
+<td align="right"><strong>$725,736</strong></td>
+<td align="right"><strong>$3,214,095</strong></td>
+<td align="right"><strong>$2,678,412</strong></td>
+<td align="right"><strong>$17,331,883</strong></td>
+<td align="right"><strong>$238,524</strong></td>
+</tr>
+</tbody>
+</table>
+<h6 id="table-7-6-cost-estimate-summary-by-jurisdiction">Table 7-6 : Cost Estimate Summary by Jurisdiction<a class="headerlink" href="#table-7-6-cost-estimate-summary-by-jurisdiction" title="Permanent link"></a></h6>
+<table>
+<thead>
+<tr>
+<th>Jurisdiction</th>
+<th align="right">Capital</th>
+<th align="right">Easement / ROW</th>
+<th align="right">Engineering</th>
+<th align="right">Legal/Administrative</th>
+<th align="right">Contract Admin/CM</th>
+<th align="right">Contingency</th>
+<th align="right">Total Capital Cost</th>
+<th align="right">Annual O&amp;M Cost</th>
+<th align="right">50-Year O&amp;M Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>City of Arvada</td>
+<td align="right">$9,083,136</td>
+<td align="right">$572,114</td>
+<td align="right">$1,362,472</td>
+<td align="right">$454,157</td>
+<td align="right">$908,315</td>
+<td align="right">$2,270,785</td>
+<td align="right">$14,650,979</td>
+<td align="right">$5,132</td>
+<td align="right">$179,619</td>
+</tr>
+<tr>
+<td>Jefferson County</td>
+<td align="right">$1,630,504</td>
+<td align="right">$153,622</td>
+<td align="right">$244,575</td>
+<td align="right">$81,525</td>
+<td align="right">$163,051</td>
+<td align="right">$407,627</td>
+<td align="right">$2,680,904</td>
+<td align="right">$1,683</td>
+<td align="right">$58,905</td>
+</tr>
+</tbody>
+</table>
+<h6 id="figure-7-1-master-plan-schematic">Figure 7-1 : Master Plan Schematic<a class="headerlink" href="#figure-7-1-master-plan-schematic" title="Permanent link"></a></h6>
+<p><div id="figure7-1" class="embedMap"></div></p>
+<h2 id="73-prioritization-and-phasing">7.3 Prioritization and Phasing<a class="headerlink" href="#73-prioritization-and-phasing" title="Permanent link"></a></h2>
+<p>In general, drainage improvements should be constructed from downstream
+to upstream to avoid any adverse impacts. Due to the isolated nature of
+each alternative in the master plan, no adverse impacts would be
+expected from implementing the proposed projects separately. A
+discussion on prioritization from an engineering perspective is
+presented below.</p>
+<p><strong>Priority 1 - Public Safety:</strong><br />
+From a public health and safety
+standpoint the alternative with the highest priority of implementation
+would be at Indiana Street and the Croke Canal crossing. This area was
+severely impacted during the September 2013 event and required breaching
+of the Croke Canal to prevent further damages downstream. An
+uncontrolled breach of the canal could result in flood damages through
+the Cameo Estates, and nearby neighborhoods. The implementation of this
+project separates Leyden Creek 100-year discharges from the canal,
+further protecting the Canal’s integrity during flood events. A
+formalized spill location has also been proposed to manage spill flows
+in excess of the canal capacity.</p>
+<p><strong>Priority 2 - Emergency Access:</strong><br />
+Improvements at West 82<sup>nd</sup> Avenue are
+recommended next to improve localized access during storm events. During
+the September 2013 flood this roadway was severely overtopping,
+eliminating the possibility of vehicular use. Blue Mountain Road
+presents similar access concerns as West 82<sup>nd</sup> Avenue as it serves as
+the primary access for residents in the area. By implementing roadway
+and culvert improvements, residents will have improved access during
+major storm events. Improvements at Blue Mountain Road will also reduce
+trans basin inflows to the Leyden Creek watershed.</p>
+<p><strong>Priority 3 - Floodplain Reduction:</strong><br />
+Several structures are located
+within a shallow, 100-year, flood hazard area east of Alkire Street.
+Improvements at Alkire would convey flow underneath the roadway and
+reduce flood risk within these shallow flooding zones. Similarly,
+improving the channel near Woodland Valley No. 7, upstream of West
+72<sup>nd</sup> Avenue would also remove the eight homes from the 100-year
+floodplain. This improvement requires a minimal level of easement
+acquisition to implement the improvements.</p>
+<p><strong>Priority 4 - Minimum Flood Improvements:</strong><br />
+While the West 75<sup>th</sup> Place
+project would not have significant impact on reducing 100-year
+floodplain limits, this project would reduce the frequent flooding of
+the roadway crossing.  The project would convey all discharges up to the
+10-year event, whereas the existing crossing structure does not have the
+capacity to convey the 2-year event.</p>
+<p><strong>Priority 5 - Future Roadway and Trail Needs:</strong><br />
+Although projects at
+West 72<sup>nd</sup> Avenue to Simms Street and at Quaker Street will remove
+several properties from the floodplain, each of these projects will
+require significant easements from private properties to implement the
+improvements. For these reasons, is it recommended that these two
+projects be implemented alongside, or ahead of, other City needs
+including roadway expansion projects or extensions of the regional trail
+network.</p>
+<h2 id="74-water-quality-impacts">7.4 Water Quality Impacts<a class="headerlink" href="#74-water-quality-impacts" title="Permanent link"></a></h2>
+<p>No regional water quality improvements are proposed for the Leyden Creek
+watershed. New developments, such as Leyden Rock, and Leyden Ranch West,
+will manage water quality on a site specific basis.</p>
+<p>Eroding channel banks also can lead to degradation in water quality
+throughout a watershed. By implementing the proposed stable channel
+slopes and stabilization structures, erosion will be less prominent,
+improving overall water quality along Leyden Creek.</p>
+<h2 id="75-operations-and-maintenance">7.5 Operations and Maintenance<a class="headerlink" href="#75-operations-and-maintenance" title="Permanent link"></a></h2>
+<p>Culvert maintenance for all proposed improvements was assumed to occur
+once every two years. Channel and all proposed hydraulic structures
+maintenance was assumed to be performed once every five years.
+Maintenance would include routine mowing of grass lined channels, debris
+removal, and sediment removal</p>
+<h2 id="76-environmental-and-safety-assessment">7.6 Environmental and Safety Assessment<a class="headerlink" href="#76-environmental-and-safety-assessment" title="Permanent link"></a></h2>
+<p>Implementation of the recommended plan will reduce flood hazards at
+selected roadway crossings. These changes will also improve emergency
+access during flood events. With exception to at 75<sup>th</sup> Place, culvert
+capacity up to the 100-year event has been provided.</p>
+<p>ERO assessed the study area for potential wetlands and waters of the
+U.S., threatened and endangered species, and general wildlife use. Below
+is a summary of the resources found at the study area and
+recommendations or future actions necessary based on the current site
+conditions and federal, state, and local regulations. ERO’s entire
+assessment can be found in <em>APPENDIX E - Wetland and Riparian
+Inventory (PDF version only)</em>.</p>
+<h4 id="761-general">7.6.1 General<a class="headerlink" href="#761-general" title="Permanent link"></a></h4>
+<p>Although there are some regulated resources in the study area, none of
+them are unique or regionally important. Aside from potential depletions
+associated with new water bodies, ERO has not identified any significant
+regulatory constraints on the proposed projects. Because of their
+dynamic natures, site conditions and regulations should be reconfirmed
+by a qualified consultant prior to conducting construction activities
+within the watershed.</p>
+<h4 id="762-wetlands-and-other-waters-of-the-us">7.6.2 Wetlands and Other Waters of the U.S.<a class="headerlink" href="#762-wetlands-and-other-waters-of-the-us" title="Permanent link"></a></h4>
+<p>Leyden Creek, most of its tributaries, and abutting wetlands are likely
+waters of the U.S. Any activity in the proposed alternatives that would
+require placing dredged or fill material into Leyden Creek, tributaries,
+or wetlands must comply with Section 404 of the Clean Water Act. Many of
+the activities in the proposed alternatives would provide a net benefit
+to the stream, particularly reestablishing open reaches and grading the
+channel.</p>
+<h4 id="763-threatened-and-endangered-species">7.6.3 Threatened and Endangered Species<a class="headerlink" href="#763-threatened-and-endangered-species" title="Permanent link"></a></h4>
+<p>There is no suitable habitat present for any listed threatened or
+endangered species, but depletions associated with new water bodies
+would likely require consultation on potential depletions associated
+with the water bodies and their potential effects on downstream
+threatened and endangered species on the Platte River in Nebraska. If
+construction activities are likely to take place outside of the Preble’s
+Denver metro block clearance zone, it is recommended that a threatened
+and endangered species letter to the U.S. Fish and Wildlife Service be
+submitted.</p>
+<h4 id="764-migratory-birds-and-other-wildlife">7.6.4 Migratory Birds and Other Wildlife<a class="headerlink" href="#764-migratory-birds-and-other-wildlife" title="Permanent link"></a></h4>
+<p>If any active nests are found in the study area, any work that would
+destroy the nests should not be conducted until the birds have abandoned
+the nests. If possible, ground-clearing activities should occur outside
+of the April 1 through August 31 migratory bird breeding season. If
+construction activities would occur during the migratory bird breeding
+season, a nest survey should be conducted immediately prior to
+construction.</p>
+          <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 ICON Engineering, Inc. &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../recommended-plan/" title="Recommended Plan">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Recommended Plan
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../references/" title="References">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                References
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '..';
+      var repo_id  = 'iconengineering/leyden-creek-master-plan';
+    </script>
+    <script src="../assets/javascripts/application-dfb6964a49.js"></script>
+    
+      <script src="../assets/js/map2-1.js"></script>
+    
+      <script src="../assets/js/map2-2.js"></script>
+    
+      <script src="../assets/js/map6-1.js"></script>
+    
+      <script src="../assets/js/map7-1.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-66511604-1', 'iconengineering.github.io');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+  </body>
+</html>

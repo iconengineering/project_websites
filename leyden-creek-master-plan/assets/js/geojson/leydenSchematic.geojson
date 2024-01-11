@@ -1,0 +1,201 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Simms Street",
+        "description": "<p>100-yr Flow: 2157 cfs<br>Existing: (4) 12'x5' RCBC<br>No Proposed Improvement</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.12825965881348,
+          39.82508351299122
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "W 72nd Avenue",
+        "description": "<p>100-yr Flow: 2083 cfs<br>Existing: 40' span bridge<br>Proposed: 110' span bridge<br>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.13195037841797,
+          39.82706103187656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Leyden Creek",
+        "description": "<p>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.13452529907227,
+          39.83042268335254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Future Ward Road Crossing",
+        "description": "<p>(Ward Road Extension by others)</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.13813018798828,
+          39.83266369294837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "W 75th Place",
+        "description": "<p>100-yr Flow: 1416 cfs<br>Existing: 36\" CMP<br> Proposed: 10-yr Crossing: (2) 9'x4' RCBC<br>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.14115571975708,
+          39.833388709811516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Alkire Street",
+        "description": "<p>100-yr Flow: 1248 cfs<br>Existing: 48\" CMP<br>Proposed: (4) 12'x4' RCBC<br>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.14746427536011,
+          39.836585283815474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "West of Cameo Estates",
+        "description": "<p>Proposed: Pond Grading<br>Proposed: Embankment Protection<br>Proposed: Outlet Structure</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.15823602676392,
+          39.837952844778435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Croke Canal",
+        "description": "<p>100-yr Flow: 665 cfs<br>Existing: 36\" CMP<br>Proposed: (3) 10'x3' RCBC<br>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.16460359096527,
+          39.838937307047324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Indiana Street",
+        "description": "<p>100-yr Flow: 665 cfs<br>Existing: (3) 36\" CMP<br>Proposed: 10'x6' RCBC<br>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.16523122787476,
+          39.83925447389389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Church Ditch",
+        "description": "<p>100-yr Flow: 5380 cfs<br>Existing: 84\" CMP<br>Proposed: Improvements By Others</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.17986536026,
+          39.84278028199692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Quaker Street",
+        "description": "<p>100-yr Flow: 5212 cfs<br>Existing: 66\" CMP<br>Proposed: (5) 12'x8' RCBC<br>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.18404960632324,
+          39.84426304441077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Pattridge Open Space",
+        "description": "<p>Proposed: 3' Check Structures (Typ.)</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.20409107208252,
+          39.84505383793876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "W 82nd Avenue",
+        "description": "<p>100-yr Flow: 2453 cfs<br>Existing: (2) 50\"x36\" CMP<br>Proposed: (3) 10'x5' RCBC<br>Proposed: Channel Grading</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.21902561187744,
+          39.846305909064114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Blue Mountain Estates",
+        "description": "<p>Proposed: Elevate Blue Mountain Road<br>Proposed: (2) 8'x6' RCBC<br>Proposed: 36\" Double Stack Grouted Boulders</p>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.27290582656859,
+          39.87496550191461
+        ]
+      }
+    }
+  ]
+}

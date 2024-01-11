@@ -1,0 +1,453 @@
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Boulder Creek Master Plan - Community Comments</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" type="text/css" href="css/jPushMenu.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<style>
+  body { margin:0; padding:0;font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+  #main{margin:0; padding:0;width:100%;}
+  #map { position:fixed; top:57px; bottom:0px; width:100%;}
+  h3 {margin-top: 15px;margin-bottom:15px;font-weight: 600;}
+  a:focus {
+  outline: thin dotted;
+}
+
+a:link,
+a:active,
+a:visited,
+a:hover {
+  outline: 0;
+  text-decoration: none;
+}
+
+a:link {
+  color:#333;
+}
+</style>
+</head>
+<body>
+
+  <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
+
+<style>
+
+.navbar{z-index:10;margin-bottom:0;}
+
+button {
+  display:block;
+  float:left;
+  margin-left: 15px;
+  position: relative;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 11px;
+  margin-bottom: 11px;
+  background-color:transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  }
+  .icon-bar{
+    background-color: #888;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+  }
+  .icon-bar+.icon-bar{
+    margin-top: 4px;
+  }
+  #myNavmenu{z-index:1001;}
+
+  .leaflet-popup-close-button { display:none; }
+fieldset { width:240px;}
+.form-group {margin-bottom:5px;}
+#add-button {margin:0;color:#fff;background-color:#385777;border-color:#324E6B;}
+#add-button:hover{background-color:#607992;}
+
+.instructions {
+  position:absolute;
+  top:5px;
+  right:0px;
+  z-index:100;
+  opacity:.9;
+}
+.panel
+{
+    position: relative;
+}
+
+.panel-default > .panel-leftheading
+{
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+.panel-primary > .panel-leftheading
+{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #428bca;
+}
+
+.panel-success > .panel-leftheading
+{
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.panel-info > .panel-leftheading
+{
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.panel-warning > .panel-leftheading
+{
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.panel-danger > .panel-leftheading
+{
+    color: #fff;
+    background-color: #d2640a;
+    border-color: #d2640a !important;
+}
+
+.panel-danger
+{
+    border-color: #d2640a !important;
+}
+
+.panel-leftheading
+{
+    width: 42px;
+    padding: 10px 15px;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    float: left;
+    height: 100%;
+    position: absolute;
+}
+
+.panel-lefttitle
+{
+    margin-top: 0 !important;
+    margin-bottom: 0!important;
+    margin-left: 15px!important;
+    font-size: 16px;
+    color: inherit;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: left top;
+    -moz-transform: rotate(90deg);
+    -moz-transform-origin: left top;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: left top;
+    -o-transform: rotate(90deg);
+    -o-transform-origin: left top;
+    transform: rotate(90deg);
+    transform-origin: left top;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.panel-rightbody
+{
+    float: left;
+    margin-left: 45px;
+    padding: 15px;
+}
+
+.legend-main{
+  position:absolute;
+  bottom:5px;
+  right:0px;
+  z-index:100;
+  opacity:.95;
+}
+.legend-box{
+  background-color:#999;
+  color:#fff;
+}
+.legend-box a{color:orange;}
+.legend label,
+    .legend span {
+        display:block;
+        float:left;
+        height:15px;
+        width:32px;
+        text-align:center;
+        font-size:9px;
+        color:#808080;
+  }
+  .legend span{margin-right:19px;opacity:.7;}
+  .legend img{opacity:.5;}
+  .alt li span {
+    display: block;
+    float: left;
+    height: 4px;
+    width: 30px;
+    margin-right: 21px;
+    margin-top:6px;
+    margin-left: 0;
+    vertical-align:middle;
+    }
+  ul {
+  list-style-type:none;
+  }
+  .xs-legend{
+    background-color:#999;
+    color:#fff;
+  }
+  .small-header{padding-top:10px;}
+
+</style>
+
+<nav id="myNavmenu" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
+
+    <div class="hidden-md hidden-lg xs-legend col-sm-12">
+      <b>Instructions:</b>
+        <p><small>Please drag the <span style="color: #e53338"><b>RED</b></span> marker to your location of interest (you can zoom and pan the map in order to accurately place your marker), and fill out the form in the popup. Please note that once you submit, the marker will turn <span style="color: #FFA6A6"><b>PINK</b></span> and is no longer movable.</small></p>
+        <p><small>Your comment can be seen in the map, but your personal information will not be visible to the public.</small></p>
+        <p><small>If you wish to make additional comments, drag the <span style="color: #e53338"><b>RED</b></span> marker again and a new form will become available.</small></p>
+        <p><small>Layers can be turned on and off using the buttons below.</small></p>
+
+      <b>Legend:</b>
+        <ul class='legend clearfix'>Effective Flood Hazards
+              <li><span style='background:#385777;'></span> Floodway</li>
+              <li><span style='background:steelblue;'></span> 100-Year</li>
+              <li><span style='background:aliceblue;'></span> 500-Year</li>
+            </ul>
+            <ul class='clearfix alt'>
+              <li><span style='background:darkslategrey;'></span> Project Limits</li>
+            </ul>
+              <small>Source: <a href="http://www.iconeng.com">ICON Engineering</a></small>
+    </div>
+    <h3>Layers</h3>
+</nav>
+<div id='main'>
+<div class="container-fluid">
+  <div class="navbar navbar-default navbar-top">
+  <button type="button" class="toggle-menu menu-left push-body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <div class="hidden-xs"><h3>Boulder Creek Master Plan - Community Comments</h3></div>
+  <div class="visible-xs small-header"><h6>Boulder Creek Master Plan - Community Comments</h6></div>
+  </div>
+
+<div id='map'>
+  <div class="visible-md visible-lg">
+  <div class="bs-docs-section col-md-3 instructions">
+     <div class="panel panel-info">
+        <div class="panel-leftheading">
+            <h3 class="panel-lefttitle">Instructions</h3>
+        </div>
+        <div class="panel-rightbody">
+          <p><small>Please drag the <span style="color: #e53338"><b>RED</b></span> marker to your location of interest (you can zoom and pan the map in order to accurately place your marker), and fill out the form in the popup. Please note that once you submit, the marker will turn <span style="color: #FFA6A6"><b>PINK</b></span> and is no longer movable.</small></p>
+          <p><small>Your comment can be seen in the map, but your personal information will not be visible to the public.</small></p>
+          <p><small>If you wish to make additional comments, drag the <span style="color: #e53338"><b>RED</b></span> marker again and a new form will become available.</small></p>
+          <p><small>Layers can be turned on and off using the menu button on the left.</small></p>
+        </div><div class="clearfix">
+          </div>
+      </div>
+  </div>
+  <div class="bs-docs-section col-md-3 legend-main">
+     <div class="panel panel-info  legend-box">
+        <div class="panel-leftheading">
+            <h3 class="panel-lefttitle">Legend</h3>
+        </div>
+        <div class="panel-rightbody">
+            <ul class='legend clearfix'>Effective Flood Hazards
+              <li><span style='background:#385777;'></span> Floodway</li>
+              <li><span style='background:steelblue;'></span> 100-Year</li>
+              <li><span style='background:aliceblue;'></span> 500-Year</li>
+            </ul>
+            <ul class='clearfix alt'>
+              <li><span style='background:darkslategrey;'></span> Project Limits</li>
+            </ul>
+              <small>Source: <a href="http://www.iconeng.com">ICON Engineering</a></small>
+        </div><div class="clearfix">
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiaWNvbmVuZyIsImEiOiJjaXBwc2V1ZnMwNGY3ZmptMzQ3ZmJ0ZXE1In0.mo_STWygoqFqRI-od05qFg';
+
+var base = new Firebase('https://bouldercrk-community.firebaseio.com/'),
+
+color = '#' + [
+        (~~(Math.random() * 16)).toString(16),
+        (~~(Math.random() * 16)).toString(16),
+        (~~(Math.random() * 16)).toString(16)].join('');
+
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/iconeng/cixrrcbd1000r2ro6dj7z1fot', //hosted style id
+        center: [-105.2715,40.0184], // starting position
+        zoom: 19, // starting zoom,
+        hash: true,
+        maxBounds: bounds // Sets bounds as max
+    });
+
+
+
+var layers = document.getElementById('myNavmenu');
+
+addLayer(L.mapbox.tileLayer('iconeng.BoulderCreek_Base'), 'Existing SFHA', 1);
+
+
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
+
+
+
+    // Create a simple layer switcher that
+    // toggles layers on and off.
+    var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    layers.appendChild(link);
+}
+
+function waitLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex);
+
+
+
+    // Create a simple layer switcher that
+    // toggles layers on and off.
+    var link = document.createElement('a');
+        link.href = '#';
+        link.className = '';
+        link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    layers.appendChild(link);
+}
+
+var marker = L.marker([40.0452,-105.1522], {
+    draggable: true,
+    icon: L.mapbox.marker.icon({
+        'marker-color': '#e53338'
+    })
+    // Add a form to that marker that lets them specify a message and click Add
+    // to add the data.
+})
+  .bindPopup('<fieldset><div class="form-group">    <div class="col-md-12">  <input id="name" name="name" type="text" placeholder="Name" class="form-control"></div></div><div class="form-group">  <div class="col-md-12">  <input id="email" name="email" type="text" placeholder="Email" class="form-control"> </div></div><div class="form-group">  <div class="col-md-12">  <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control"></div></div><div class="form-group">  <div class="col-md-12">  <textarea class="form-control" id="message" name="message" placeholder="Comment"></textarea>  </div></div><div class="form-group">  <div class="col-md-12">    <button id="add-button" class="col3">Add Comment</button></fieldset>  </div></div></fieldset>')
+    .addTo(map)
+    .openPopup();
+
+// Every time the marker is dragged, update the form.
+marker.on('dragend', function(e) {
+    marker.openPopup();
+    // When the user clicks Add
+    L.DomEvent.addListener(L.DomUtil.get('add-button'), 'click', function() {
+        // First, clean the potential-HTML they've added to the value.
+        var name = L.DomUtil.get('name').value;
+        var email = L.DomUtil.get('email').value;
+        var phone = L.DomUtil.get('phone').value;
+        var message = L.DomUtil.get('message').value;
+        // Get the current draggable marker's position and GeoJSON representation
+        var geojson = marker.toGeoJSON();
+        geojson.properties['marker-color'] = '#FFA6A6';
+        geojson.properties.description = message;
+        geojson.properties.name = name;
+        geojson.properties.email = email;
+        geojson.properties.phone = phone;
+        // And save it to Firebase
+        base.push(geojson);
+        marker.closePopup();
+    });
+});
+
+// With a cap of 200, listen for new markers being added to the map.
+base.limit(200).on('child_added', function(snapshot) {
+    // And for each new marker, add a featureLayer.
+    L.mapbox.featureLayer(snapshot.val())
+        .eachLayer(function(l) {
+            // Which positions markers below the marker you drag, so that
+            // they don't overlap in the z-index.
+            l.setZIndexOffset(-1000)
+            // And each marker should have a label with its title.
+            var geojson = l.toGeoJSON();
+
+        })
+        .addTo(map);
+});
+
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<!--load jPushMenu, required-->
+<script src="js/jPushMenu.js"></script>
+
+<!--call jPushMenu, required-->
+<script>
+jQuery(document).ready(function($) {
+	$('.toggle-menu').jPushMenu();
+});
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57837083-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
