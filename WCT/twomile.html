@@ -1,0 +1,389 @@
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Twomile</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" type="text/css" href="css/jPushMenu.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<style>
+  body { margin:0; padding:0;font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+  #main{margin:0; padding:0;width:100%;}
+  #map { position:fixed; top:57px; bottom:0px; width:100%;}
+  h3 {margin-top: 15px;margin-bottom:15px;font-weight: 600;}
+  a:focus {
+  outline: thin dotted;
+}
+
+a:link,
+a:active,
+a:visited,
+a:hover {
+  outline: 0;
+  text-decoration: none;
+}
+
+a:link {
+  color:#333;
+}
+</style>
+</head>
+<body>
+
+  <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
+
+<style>
+
+.navbar{z-index:10;margin-bottom:0;}
+
+.map-tooltip {
+        right:150px;
+        box-shadow:0px 0px 4px 2px rgba(0%,0%,0%,0.25);}
+
+button {
+  display:block;
+  float:left;
+  margin-left: 15px;
+  position: relative;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 11px;
+  margin-bottom: 11px;
+  background-color:transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  }
+  .icon-bar{
+    background-color: #888;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+  }
+  .icon-bar+.icon-bar{
+    margin-top: 4px;
+  }
+  #myNavmenu{z-index:1001;}
+
+  .leaflet-popup-close-button { display:none; }
+fieldset { width:240px;}
+.form-group {margin-bottom:5px;}
+#add-button {margin:0;color:#fff;background-color:#385777;border-color:#324E6B;}
+#add-button:hover{background-color:#607992;}
+
+.instructions {
+  position:absolute;
+  top:5px;
+  right:0px;
+  z-index:100;
+  opacity:.9;
+}
+.panel
+{
+    position: relative;
+}
+
+.panel-default > .panel-leftheading
+{
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+.panel-primary > .panel-leftheading
+{
+    color: #fff;
+    background-color: #428bca;
+    border-color: #428bca;
+}
+
+.panel-success > .panel-leftheading
+{
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.panel-info > .panel-leftheading
+{
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.panel-warning > .panel-leftheading
+{
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.panel-danger > .panel-leftheading
+{
+    color: #fff;
+    background-color: #d2640a;
+    border-color: #d2640a !important;
+}
+
+.panel-danger
+{
+    border-color: #d2640a !important;
+}
+
+.panel-leftheading
+{
+    width: 42px;
+    padding: 10px 15px;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    float: left;
+    height: 100%;
+    position: absolute;
+}
+
+.panel-lefttitle
+{
+    margin-top: 0 !important;
+    margin-bottom: 0!important;
+    margin-left: 15px!important;
+    font-size: 16px;
+    color: inherit;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: left top;
+    -moz-transform: rotate(90deg);
+    -moz-transform-origin: left top;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin: left top;
+    -o-transform: rotate(90deg);
+    -o-transform-origin: left top;
+    transform: rotate(90deg);
+    transform-origin: left top;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.panel-rightbody
+{
+    float: left;
+    margin-left: 45px;
+    padding: 15px;
+}
+
+.legend-main{
+  position:absolute;
+  bottom:5px;
+  right:0px;
+  z-index:100;
+  opacity:.95;
+}
+.legend-box{
+  background-color:#999;
+  color:#fff;
+}
+.legend-box a{color:orange;}
+.legend label,
+    .legend span {
+        display:block;
+        float:left;
+        height:15px;
+        width:32px;
+        text-align:center;
+        font-size:9px;
+        color:#808080;
+  }
+  .legend span{margin-right:19px;opacity:.7;}
+  .legend img{opacity:.5;}
+  .alt li span {
+    display: block;
+    float: left;
+    height: 4px;
+    width: 30px;
+    margin-right: 21px;
+    margin-top:6px;
+    margin-left: 0;
+    vertical-align:middle;
+    }
+  ul {
+  list-style-type:none;
+  }
+  .xs-legend{
+    background-color:#999;
+    color:#fff;
+  }
+  .small-header{padding-top:10px;}
+
+</style>
+
+<nav id="myNavmenu" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
+
+    <div class="hidden-md hidden-lg xs-legend col-sm-12">
+
+      <b>Legend:</b>
+        <ul class='legend clearfix'>Existing Conditions
+              <li><span style='background:crimson;'></span> High Hazard Area (2d)</li>
+              <li><span style='background:orchid;'></span> Zone AO 1ft</li>
+              <li><span style='background:purple;'></span> Zone AO 2ft</li>
+              <li><span style='background:coral;'></span> Zone X</li>
+              <li><span style='background:plum;'></span> Zone X 100 Year</li>
+            </ul>
+            <ul class='clearfix alt'>
+              <li><span style='background:yellow;'></span> Conveyance</li>
+              <li><span style='background:dodgerblue;'></span> 1% Flood Hazard</li>
+              <li><span style='background:navy;'></span> Stream Centerline</li>
+            </ul>
+              <small>Source: <a href="http://www.iconeng.com">ICON Engineering</a></small>
+    </div>
+    <h3>Layers</h3>
+</nav>
+<div id='main'>
+<div class="container-fluid">
+  <div class="navbar navbar-default navbar-top">
+  <button type="button" class="toggle-menu menu-left push-body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <div class="hidden-xs"><h3>City of Boulder - Twomile Creek</h3></div>
+  <div class="visible-xs small-header"><h6>City of Boulder - Twomile Creek</h6></div>
+  </div>
+
+<div id='map'>
+  <div class="visible-md visible-lg">
+    <div class="bs-docs-section col-md-3 legend-main">
+     <div class="panel panel-info  legend-box">
+        <div class="panel-leftheading">
+            <h3 class="panel-lefttitle">Legend</h3>
+        </div>
+        <div class="panel-rightbody">
+            <ul class='legend clearfix'>Existing Conditions
+              <li><span style='background:crimson;'></span> High Hazard Area (2d)</li>
+              <li><span style='background:orchid;'></span> Zone AO 1ft</li>
+              <li><span style='background:purple;'></span> Zone AO 2ft</li>
+              <li><span style='background:coral;'></span> Zone X</li>
+              <li><span style='background:plum;'></span> Zone X 100 Year</li>
+            </ul>
+            <ul class='clearfix alt'>
+              <li><span style='background:yellow;'></span> Conveyance</li>
+              <li><span style='background:dodgerblue;'></span> 1% Flood Hazard</li>
+              <li><span style='background:navy;'></span> Stream Centerline</li>
+            </ul>
+              <small>Source: <a href="http://www.iconeng.com">ICON Engineering</a></small>
+        </div><div class="clearfix">
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiaWNvbmVuZyIsImEiOiJjaXBwc2V1ZnMwNGY3ZmptMzQ3ZmJ0ZXE1In0.mo_STWygoqFqRI-od05qFg';
+
+var base = new Firebase('https://bouldercrk-community.firebaseio.com/'),
+
+color = '#' + [
+        (~~(Math.random() * 16)).toString(16),
+        (~~(Math.random() * 16)).toString(16),
+        (~~(Math.random() * 16)).toString(16)].join('');
+
+var map = L.mapbox.map('map','iconeng.j74911pj',{
+      attributionControl: false,
+      infoControl: true,
+      maxZoom:19
+    })
+      .addControl(L.mapbox.geocoderControl('mapbox.places-v1'))
+      .setView([40.036,-105.283], 15);
+
+var layers = document.getElementById('myNavmenu');
+
+var changeGrid = L.mapbox.gridLayer('iconeng.2mile_flo2d').addTo(map);
+
+waitLayer(L.mapbox.tileLayer('iconeng.2mile_EC'), 'Existing Conditions', 1);
+waitLayer(L.mapbox.tileLayer('iconeng.2mile_Storm'), '2013 Storm Extents', 2);
+addLayer(L.mapbox.tileLayer('iconeng.COB_Contours'), 'Contours', 3);
+waitLayer(L.layerGroup([L.mapbox.tileLayer('iconeng.2mile_flo2d'),changeGrid]), 'Flo2d Model', 0);
+
+var changeControl = L.mapbox.gridControl(changeGrid).addTo(map);
+
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
+
+
+
+    // Create a simple layer switcher that
+    // toggles layers on and off.
+    var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    layers.appendChild(link);
+}
+
+function waitLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex);
+
+
+
+    // Create a simple layer switcher that
+    // toggles layers on and off.
+    var link = document.createElement('a');
+        link.href = '#';
+        link.className = '';
+        link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    layers.appendChild(link);
+}
+
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<!--load jPushMenu, required-->
+<script src="js/jPushMenu.js"></script>
+
+<!--call jPushMenu, required-->
+<script>
+jQuery(document).ready(function($) {
+	$('.toggle-menu').jPushMenu();
+});
+</script>
+</body>
+</html>
