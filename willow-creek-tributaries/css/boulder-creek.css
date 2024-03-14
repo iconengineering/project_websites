@@ -8,15 +8,15 @@ body {
 }
 body {
   padding-top: 70px;
-  background-color:#99B2B7 !important;
+  background-color:#F0F8FC !important;
 }
 footer {
   padding: 30px 0;
 }
 
 .navbar{
-  background-color:#7A6A53;
-  border: 1px solid #948C75 !important;
+  background-color:#31858f;
+  border: 1px solid #31858f !important;
 }
 
 .navbar a {
@@ -27,7 +27,7 @@ footer {
 .nav > li > a:focus,
 .navbar li:hover,
 .nav > li > a:hover {
-  background-color: #948C75 !important;
+  background-color: #31858f !important;
 }
 
 .main-column{
@@ -62,10 +62,10 @@ footer {
 .paper {
     padding: 10px 10px 10px 0px;
     margin: 20px 5px 20px 0px !important;
-    border: 1px solid #428bca;
+    border: 1px solid #31858f;
     border-left-width: 5px;
     border-radius: 3px;
-    border-left-color: #428bca;
+    border-left-color: #31858f;
 }
 
 .paper .tab-content{
@@ -102,13 +102,13 @@ footer {
     color:black !important;
 }
 .red a:hover {
-    background-color:#eee !important;
-    color:black !important;
+    background-color:31858f !important;
+    color:b31858f !important;
 }
 
 .red .active a,
 .red .active a:hover {
-    background-color:#428bca !important;
+    background-color:#31858f !important;
     color:#fff !important;
 }
 
@@ -127,7 +127,7 @@ footer {
 
 .icon-pills .active a,
 .icon-pills .active a:hover {
-    background-color:#d2640a !important;
+    background-color:#31858f !important;
     color:#fff !important;
 }
 
@@ -169,41 +169,41 @@ footer {
 .panel-primary > .panel-leftheading
 {
     color: #fff;
-    background-color: #428bca;
-    border-color: #428bca;
+    background-color: #31858f;
+    border-color: #31858f;
 }
 
 .panel-success > .panel-leftheading
 {
-    color: #3c763d;
+    color: #31858f;
     background-color: #dff0d8;
     border-color: #d6e9c6;
 }
 
 .panel-info > .panel-leftheading
 {
-    color: #31708f;
+    color: #331858f;
     background-color: #d9edf7;
     border-color: #bce8f1;
 }
 
 .panel-warning > .panel-leftheading
 {
-    color: #8a6d3b;
+    color: #31858f;
     background-color: #fcf8e3;
-    border-color: #faebcc;
+    border-color: #31858f;
 }
 
 .panel-danger > .panel-leftheading
 {
     color: #fff;
-    background-color: #d2640a;
-    border-color: #d2640a !important;
+    background-color: #31858f;
+    border-color: #31858f !important;
 }
 
 .panel-danger
 {
-    border-color: #d2640a !important;
+    border-color: #31858f !important;
 }
 
 .panel-leftheading
